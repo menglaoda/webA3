@@ -1,0 +1,375 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	
+}
+.header{
+	width: 100%;
+	height: 60px;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	background: white;
+	z-index: 99;
+	display: none;
+}
+.header img:first-child{
+	float: left;
+	margin-left: 20px;
+	margin-top: 22px;
+}
+.header img:nth-child(2){
+	position: absolute;
+	left: 50%;
+	top: 10px;
+	margin-left: -50px;
+	width: 100px;
+}
+.header img:nth-child(3){
+	float: right;
+	margin-right: 20px;
+	margin-top: 22px;
+}
+.logo{
+	width: 100px;
+}
+.box1{
+	width: 100%;
+	height: 50vw;
+	background: url(img/ia_100000013.jpg) no-repeat center/120% ;
+	position: relative;
+}
+.box12{
+	height: 50px;
+	line-height: 50px;
+	position: relative;
+	top: 50px;
+}
+.left{
+	width: 125px;
+	float: left;
+	margin-left: 40px;
+}
+.right{
+	float: right;
+	margin-right: 40px;
+}
+.nav{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	text-align: center;
+	font-size: 0px;
+}
+.nav a{
+	color: white;
+	font-size: 16px;
+	text-decoration: none;
+	margin: 0px 28px;
+}
+.box13{
+	width: 100%;
+	height: 204px;
+	position: absolute;
+	top: 50%;
+	margin-top: -104px;
+	text-align: center;
+	color: white;
+}
+.box13 h1{
+	font-size: 60px;
+	font-weight: 400;
+	font-family: "宋体";
+	line-height: 50px;
+}
+.box13 a{
+	width: 160px;
+	height: 60px;
+	line-height: 60px;
+	background: #2d2d2d;
+	display: block;
+	position: absolute;
+	bottom: 0px;
+	left: 50%;
+	margin-left: -80px;
+	color: white;
+	text-decoration: none;
+}
+.box2{
+	background: white;
+	padding: 125px 0px;
+}
+.box21{
+	width: 55%;
+	margin: 0 auto;
+}
+.box21 h3{
+	font-size: 36px;
+	font-weight: 400;
+	font-family: "Times New Roman";
+}
+.box21 p{
+	color: rgb(119, 119, 119);
+	font-size: 13px;
+	line-height: 20px;
+	margin: 35px 0px 15px 0px;
+}
+.box21 a{
+	color: #d39850;
+	text-decoration: none;
+	padding-bottom: 4px;
+	padding-right: 20px;
+	border-bottom: dashed 1px #d39850;
+}
+.box3{
+	width: 100%;
+	height: 89vw;
+	position: relative;
+}
+.box31{
+	width: 66%;
+	height: 89vw;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+.box4 .box31{
+	left: 34%;
+}
+.box32{
+	width: 34%;
+	height: 44.5vw;
+	position: absolute;
+	top: 0px;
+	left: 66%;
+}
+.box4 .box32{
+	left: 0px;
+}
+.box33{
+	width: 34%;
+	height: 44.5vw;
+	position: absolute;
+	top: 44.5vw;
+	left: 66%;
+}
+.box4 .box33{
+	left: 0px;
+}
+.box3 img{
+	display: block;
+	width: 100%;
+	height: 100%;
+	position: relative;
+	top: 0px;
+	left: 0px;
+	transition: all 1s;
+}
+.box3>div{
+	overflow: hidden;
+}
+.box3>div:hover img{
+	width: 110%;
+	height: 110%;
+	top: -5%;
+	left: -5%;
+}
+.text1{
+	width: 100%;
+	text-align: center;
+	position: absolute;
+	top: 50%;
+	left: 0px;
+	margin-top: -37px;
+	font-family: "宋体";
+}
+.text1 h3{
+	color: white;
+	font-size: 40px;
+	font-weight: 400;
+}
+.text1 a{
+	font-size: 14px;
+	text-decoration: none;
+	color: white;
+}
+.img5{
+	display: block;
+	width: 66%;
+	float: left;
+}
+.box51{
+	float: right;
+	width: 34%;
+	padding: 11vw 0px;
+	text-align: center;
+}
+.box51 h3{
+	font-size: 28px;
+	font-weight: 400;
+}
+.line{
+	width: 20px;
+	height: 3px;
+	background: #d39850;
+	margin: 15px auto;
+}
+.box51 p{
+	color:rgb(119, 119, 119);
+	font-size: 13px;
+}
+.search{
+	margin: 33px 0px 50px;
+}
+.box51 input{
+	width: 208px;
+	height: 48px;
+	background: #fcfcfc;
+	outline: medium;
+	border: solid 1px rgb(224, 224, 224);
+	text-indent: 10px;
+}
+.box51 a{
+	display: inline-block;
+	width: 90px;
+	height: 50px;
+	line-height: 50px;
+	background: black;
+	color: white;
+	text-decoration: none;
+}
+.p1{
+	clear: both;
+	text-align: center;
+	padding-top: 57px;
+	font-size: 0px;
+}
+.p1 span:first-child{
+	width: 24px;
+	height: 22px;
+	display: inline-block;
+	background: url(img/ia_100000018.png) 0px -49px;
+}
+.p1 span:nth-child(2){
+	width: 24px;
+	height: 22px;
+	display: inline-block;
+	background: url(img/ia_100000018.png) -24px -49px;
+}
+.p1 span:nth-child(3){
+	width: 24px;
+	height: 22px;
+	display: inline-block;
+	background: url(img/ia_100000018.png) -192px -49px;
+}
+.p1 span{
+	margin: 0px 10px;
+}
+.p2{
+	font-size: 0;
+	text-align: center;
+	margin: 23px 0px 36px;
+}
+.p2 span{
+	font-size: 13px;
+	margin: 0px 8px;
+}
+@media only screen and (max-width:1024px ) {
+	.box12{
+		display: none;
+	}
+	.header{
+		display: block;
+	}
+	.box1{
+		margin-top: 60px;
+	}
+	.box13 h1 {
+		font-size: 30px;
+	}
+	.box13 a{
+		width: 136px;
+		height: 45px;
+		line-height: 45px;
+	}
+	.box13{
+		height: 120px;
+		margin-top: -60px;
+	}
+	.box21 h3:nth-child(1){
+		width: 320px;
+		overflow: hidden;
+		white-space: nowrap;
+	}
+	.box21 h3:nth-child(2){
+		display: none;
+	}
+	.box21{
+		width: 92%;
+	}
+	.box2{
+		padding: 45px 0px;
+	}
+	.box3{
+		height: 199.5vw;
+	}
+	.box31{
+		width: 100%;
+		height: 133vw;
+	}
+	.box32{
+		width: 50%;
+		height: 66.5vw;
+		top: 133vw;
+		left: 0px;
+	}
+	.box33{
+		width: 50%;
+		height: 66.5vw;
+		top: 133vw;
+		left: 50%;
+	}
+	.box4 .box31{
+		width: 100%;
+		height: 133vw;
+		top: 66.5vw;
+		left: 0px;
+	}
+	.box4 .box32{
+		width: 50%;
+		height: 66.5vw;
+		top: 0vw;
+		left: 0px;
+	}
+	.box4 .box33{
+		width: 50%;
+		height: 66.5vw;
+		top: 0vw;
+		left: 50%;
+	}
+	.text1{
+		margin-top: -21.5px;
+	}
+	.text1 h3{
+		font-size: 22px;
+	}
+	.img5{
+		width: 100%;
+		float: none;
+	}
+	.box51{
+		float: none;
+		width: 100%;
+	}
+	.box51 input{
+		width: 90%;
+		display: block;
+		margin: 0 auto 20px;
+	}
+	.p1{
+		padding: 0;
+	}
+}
