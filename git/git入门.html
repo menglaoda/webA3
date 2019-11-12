@@ -1,0 +1,41 @@
+﻿<html>
+<head>
+  <title>git入门</title>
+  <basefont face="微软雅黑" size="2" />
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <meta name="exporter-version" content="Evernote Windows/303429 (zh-CN, DDL); Windows/10.0.10586 (Win64);"/>
+  <style>
+    body, td {
+      font-family: 微软雅黑;
+      font-size: 10pt;
+    }
+    .box{
+    	padding-bottom: 20px;
+    }
+    .box span:nth-child(1){
+    	font-size: 22px;
+    	margin-left: -0px;
+    }
+    .box span{
+    	margin-left: 20px;
+    }
+  </style>
+</head>
+<body>
+<a name="379"/>
+<h1>git入门</h1>
+
+<div>
+<span><div><span style="font-size: 21px;">1、git安装</span></div><div>    下载地址：https://git-for-windows.github.io</div><div><br/></div><div><span style="font-size: 21px;">2、配置个人信息（名字与邮箱）</span></div><div>      <span style="color: rgb(0, 0, 0); font-family: &quot;microsoft yahei&quot;; font-size: 14px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(255, 255, 255); display: inline !important; float: none;">使用Git的第一件事就是设置你的名字和email,这些就是你在提交commit时的签名</span></div><div>    git config --global user.name &quot;Your Name&quot;</div><div>    git config --global user.email &quot;email@example.com&quot;</div><div>     **查看是否配置成功，用命名git config -l</div><div><br/></div><div><span style="font-size: 21px;">3、创建本地仓库</span></div><div>    git init：把当前目录变成一个git仓库</div><div>     以上命令会在当前目录下创建了一个.git 隐藏目录，它就是所谓的Git 仓库。生成仓库后的目录就不是普通的文档目录了，我们将其称为工作区，所以工作区中都包含一个git仓库，而一个git仓库中又包含一个暂存区和一个版本库</div><div><br/></div><div><span style="font-size: 21px;">4、工作区与版本库概念</span></div><div>    Git有三大区 （ 工作区、暂存区、版本库 ）以及 几个状态 （ untracked、unstaged、uncommited ）</div><div>    工作区（Working Directory）：电脑中的目录</div><div>    仓库：工作区有一个隐藏目录.git，这个不算工作区，而是Git仓库。</div><div>        暂存区（stage/index）：</div><div>        版本库 （Repository） ：</div><div><br/></div><div><span style="font-size: 21px;">5、添加文件到版本库的步骤</span></div><div>    1）创建（修改）文件</div><div>          往工作区中添加文件</div><div>    2）添加到暂存区：git add &lt;file&gt;</div><div>          把修改存放到一个临时的存储区域，Git 称之为暂存区（索引）。</div><div>    3）提交到版本库：git commit -m &quot;备注&quot;</div><div>          使用git commit 命令可将暂存区的内容提交至版本库中，这个过程称为提交，每一次提交都意味着版本在进行一次更新</div><div><br/></div><div><span style="font-size: 21px;">6、其他命令</span></div><div>    1）查看仓库变更状态：git status</div><div>    2）对比文件：git diff &lt;file&gt;</div><div><br/></div><div><span style="font-size: 21px;">7、版本回退</span></div><div>    1）显示从最近到最远的提交日志：git log</div><div>        1&gt;--pretty=oneline（显示简要信息id+备注）</div><div>        2&gt;--graph（图形显示版本走向）</div><div>        3&gt;--abbrev-commit（显示简写的id）</div><div>        4&gt;一大串类似3628164...882e1e0的是commit id（版本号）</div><div>    2）当前版本：HEAD</div><div>        上一个版本：HEAD^</div><div>        上上个版本：HEAD^^</div><div>        ...            依此类推</div><div>        前100个版本：HEAD~100</div><div>    3）git reset (--hard、--mixed、--soft)</div><div>        1&gt;回退到上一个版本</div><div>            git reset --hard HEAD^</div><div>        2&gt;回退到指定版本：</div><div>            git reset --hard [commit id] 版本号没必要写全，前几位就可以了，Git会自动去找。</div><div>        3&gt;回退指定文件</div><div>              git reset --hard [commit id] &lt;file&gt;</div><div>        4&gt;参数：(--hard、--mixed(默认值)、--soft)</div><div style="margin-left:40px;">        --hard:工作区、暂存区、版本库的文件同时回退</div><div style="margin-left:40px;">        --mixed：暂存区、版本库的文件回退（默认）</div><div style="margin-left:40px;">        --soft：仅仅回退版本库中的文件</div><div>    4）查看命令历史：git reflog</div><div><br/></div><div><span style="font-size: 21px;">8、撤销修改</span></div><div>    git checkout -- &lt;file&gt;：放弃工作区的修改</div><div>    git rm --cache &lt;file&gt;：撤销暂存区的修改</div><div>    git reset HEAD &lt;file&gt;：撤销暂存区的修改</div><div><br/></div><div><span style="font-size: 21px;">9、远程仓库</span></div><div>    1）创建SSH Key：ssh-keygen -t rsa -C 'xxx@xx.com'</div><div>        以上命令会在当前window用户的目录里创建.ssh目录，里面有id_rsa（私钥）和id_rsa.pub（公钥）两个文件</div><div>    2）把私钥或公钥添加到远程仓库</div><div>    3）建立本地仓库与远程仓库的连接（先有本地仓库，后有远程仓库的时候，如何关联远程仓库）</div><div>        git remote add origin 远程仓库地址</div><div>        PS：删除远程仓库连接：git remote remove origin  <br/>&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;查看仓库是否配置成功：git remote -v </div><div>    4）从远程库克隆（先有远程库，后有本地仓库的时候，如何关联远程仓库）</div><div>        git clone 远程仓库地址</div><div>     **当你从远程仓库克隆时，实际上Git自动把本地的master分支和远程的master分支对应起来了，并且，远程仓库的默认名称是origin</div><div>     **测试线路是否连通：<font color="#010101" face="Lucida Console" size="1"><span style="font-size:9pt">ssh -T git@github.com</span></font></div><div><br/></div><div><span style="font-size: 21px;">10、推送到远程仓库</span></div><div>     git push</div><div>     格式：git push &lt;远程主机名&gt; &lt;本地分支名&gt;:&lt;远程分支名&gt;</div><div><br/></div><div>     **第一次使用git push -u origin master后，之后就可以用简写命名：git push origin</div><div><br/></div><div><span style="font-size: 21px;">11、拉取与合并（同步本地与远程仓库）</span></div><div>     1）git pull</div><div>          格式：git pull origin dev （把远程分支dev拉取到本地）</div><div>         </div><div>     2）合并： git merge  &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;例：git merge dev 把dev分支合并到当前分支</div><div><br/></div><div>     **push和pull后的分支顺序格式：&lt;来源地&gt;:&lt;目的地&gt;</div><div><br/></div><div><br/></div></span>
+</div>
+<div class="box">
+	<span>12、分支</span><br />
+	<span>查看分支：git branch</span><br />
+	<span>添加分支：git branch &ensp;分支名</span><br />
+	<span>切换分支：git checkout &ensp;分支名</span><br />
+	<span>合并分支： git merge  &ensp;分支名 &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;例：git merge dev 把dev分支合并到当前分支</span><br />
+	<span>特殊分支名： gh-pages   &ensp;&ensp;&ensp;展示自己项目</span><br />
+	<span>删除本地分支：git branch -d  dev</span><br />
+	<span>删除远程仓库分支：git push origin -d dev</span><br />
+</div>
+</body></html> 
