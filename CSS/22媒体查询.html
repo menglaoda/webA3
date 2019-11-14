@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--<link type="text/css" media="screen and (min-width:1024px)" href="css/22.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/222.css" media="screen and (max-width:1024px)" />-->
+		<style type="text/css">
+			.box{
+				width: 200px;
+				height: 200px;
+				background: red;
+			}
+			/*@media only screen and (min-width:1024px ) {
+				.box{
+					background: blue;
+				}
+			}*/
+			/*@media only screen and (min-width:800px ) and (max-width:1000px ) {
+				.box{
+					background: blue;
+				}
+			}*/
+			
+			/*@media only screen and (max-width:800px ) ,(min-width:1000px ) {
+				.box{
+					background: blue;
+				}
+			}*/
+			
+			@media not screen and (max-width:800px ){
+				.box{
+					background: blue;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box"></div>
+	</body>
+</html>
