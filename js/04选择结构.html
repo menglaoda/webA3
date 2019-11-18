@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			//1.单分支----if条件判断语句
+//			判断一个数是不是偶数
+			var a1 = 10;
+			if(a1%2==0){
+				console.log(a1+"是偶数");
+			}
+			
+			//双分支语句格式
+			// 1、求两个数的最大数；
+			var b1 = 10,b2=20;
+			if(b1>b2){
+				console.log(b1+"大");
+			}else{
+				console.log(b2+"大");
+			}
+			
+			//多分支语句格式
+			var n = 2;
+			if(n>=90){
+				console.log("成绩优秀");
+			}else if(n>=80 && n<90){
+				console.log("成绩良好");
+			}else if(n>=60 && n<80){
+				console.log("成绩及格");
+			}else{
+				console.log("成绩不及格");
+			}
+			
+			//嵌套if结构：
+//			if(){
+//				if(){
+//					if(){
+//						
+//					}
+//				}
+//			}else{
+//				
+//			}
+
+			//多分支——switch语句
+			var box ="A";
+			switch(box){
+				case "A":
+				console.log("分数大于90分");
+				break;
+				case "B":
+				console.log("分数80-90分");
+				break;
+				case "C":
+				console.log("分数60-80分");
+				break;
+				case "D":
+				console.log("分数不及格");
+				break;
+				default:
+				console.log("这不是一个分数");
+				break;
+			}
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

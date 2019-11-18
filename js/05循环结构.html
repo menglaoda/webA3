@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			//while循环
+			//示例：计算1+2+3+……+100之和。
+//			var i =0;
+//			var s = 0 ;
+//			while(i>100){
+//				i++;
+//				s+=i;
+//			}
+//			console.log(s);
+			
+			//do…while循环
+			
+//			do{
+//				i++;
+//				s+=i;
+//			}while (i>100);
+//			console.log(s);
+
+			//for循环
+			var s1 = 0 ;
+			for(var i=0;i<=2;i++){
+				for(var j=0;j<10;j++){
+					console.log(j);
+					break;
+				}
+			}
+			
+			//求整数1～100的累加值，但要求跳过所有个位为3的数。
+			var s1 = 0;
+			for(var i=0;i<=100;i++){
+				s1+=i;
+				if(s1%10==3){
+					continue;
+				}
+				document.write(s1+"<br />");
+			}
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

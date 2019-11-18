@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			//定义一个变量,var 关键字，a1 ：变量名
+			var a1 = 10;
+			console.log(a1);
+			
+			//同时定义多个变量
+			var b1=20,c1=30,d1=40;
+			console.log(d1);
+			
+			var a2 ;
+			console.log(typeof a2);//undefined
+			
+			var b2 = null;
+			console.log(typeof b2);//"object"
+			console.log(a2==b2);//"true"
+			
+			var c2 = false;
+			console.log(typeof c2);//"boolean",true,false
+			
+			var d2 = 20.5;
+			console.log(typeof d2);//"number"
+			var d3 = .8;
+			console.log(d3);
+			
+			//用 e 表示该数值的前面 10 的指数次幂
+			var d4 = 4.5e3;
+			console.log(d4)
+			
+			console.log(12/0);//"Infinity"
+			console.log(-12/0);//"-Infinity"
+			console.log(0/0);//"NaN"
+			var box ="hello word";
+			console.log(box/10);//"NaN"
+			
+			//isNaN()
+			console.log(isNaN(box/10));//"true"
+			
+			//parseInt()  是把其它类型转换为整型；
+			var a1 = "hello word";
+			console.log(typeof a1);//"string"
+			var box1 = parseInt(a1);
+			console.log(typeof box1);//"number"
+			var b1 = 10.5;
+			console.log(parseInt(b1));// "10"
+			
+			//parseFloat()  是把其它类型转换为浮点型（小数）
+			console.log(parseFloat(b1));//"10.5"
+			
+			//四舍五入Math.round()
+			console.log(Math.round(b1));//11
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
