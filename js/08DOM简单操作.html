@@ -3,7 +3,42 @@
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
+		<script type="text/javascript">
+			//文档加载完毕后执行
+			window.onload = function(){
+				//获取文本框
+				var text1 = document.getElementById("val");
+				console.log(text1);
+				//获取文本框的值
+				console.log(text1.value);
+				//获取按钮
+				var btn = document.getElementById("btn");
+				//获取p标签
+				var p1 = document.getElementById("p1");
+				//给按钮绑定一个点击事件
+				btn.onclick = function(){
+					if(text1.value==100){
+						//改变p标签的值
+						p1.innerHTML = "爸爸给他买辆车";
+					}else if(text1.value>=90 && text1.value<100){
+						p1.innerHTML = "妈妈给他买MP4";
+					}else if(text1.value>=60 && text1.value<90){
+						p1.innerHTML = "妈妈给他买本参考书";
+					}else{
+						p1.innerHTML = "什么都不买";
+					}
+				}
+			}
+		</script>
 	</head>
 	<body>
+					<!--//输入赵本山的考试成绩，显示所获奖励
+//			成绩==100分，爸爸给他买辆车
+//			成绩>=90分，妈妈给他买MP4
+//			90分>成绩>=60分，妈妈给他买本参考书
+//			成绩<60分，什么都不买 -->
+		<input id="val" type="text" value="请输入成绩" />
+		<button id="btn">显示奖励</button>
+		<p id="p1"></p>
 	</body>
 </html>
