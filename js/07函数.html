@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			//创建函数 
+			//关键字：function
+			//函数名 ：fn
+			function fn(){
+				document.write("函数被执行了");
+			}
+			
+			//调用函数
+			fn();
+			
+			//sum(2,8);  //计算2+8的结果。
+			//2,8 叫做实参
+			//a,b叫做形参
+			function fn1(a,b){
+				console.log(a+b);
+				//return a+b; //return  返回值
+			}
+			//参数可以传递多个，与函数的定义无关
+			console.log(fn1(2,8,20));
+			
+			//练习：向一个函数传入不定数量的数值求和。
+			function fn2(){
+				//arguments 内置数组
+				console.log(arguments);
+				//length 长度
+				console.log(arguments.length);
+				//通过下标访问数组元素，下标从0开始
+				console.log(arguments[0]);
+				//获取数组最后一个元素
+				console.log(arguments[arguments.length-1]);	
+				//数组第3个元素跟倒数第三个数的和；
+				console.log(arguments[2]+arguments[arguments.length-3]);
+				var s = 0;
+				for(var i=0;i<arguments.length;i++){
+					s+=arguments[i];
+				}
+				console.log(s);
+				
+			}
+			fn2(1,2,3,4,5,6,7,8,9,101,54,66,88,77,22,11,4,5,6,7,8,9,101,54,66,88,999);
+		
+			//在一般传值调用的机制中只能把实参传送给形参，而不能把形参的值反向地传送给实参。因此在函数调用过程中，形参值发生改变，而实参中的值不会变化。
+//				function   addNum(n){
+//					 n += 5 ;//n=15
+//				}
+//				var  a=10;
+//				addNum(a);           
+//              alert(a);//10
+                
+	            var a = 10; //全局变量
+			    function m1(){
+					b = 5;//局部变量
+			       	//alert(b);//5
+			    }
+			    m1();
+			    //alert(a);   //10
+			    //console.log(b);
+			    
+    			//函数内部可以再包含其他函数 
+				//函数之间允许相互调用，也允许向外调用, 不可以调用同级函数的嵌套函数
+				function a1(){
+					console.log("a1");
+					function b1(){
+						console.log("b1");
+					}
+					b1();
+				}
+				function c1(){
+					console.log("c1");
+					//b1();
+				}
+				c1();
+
+		</script>
+	</head>
+	<body>
+		<br />
+		<input type="text" value="10" />
+		<input type="text" value="20"/>
+		<button>打印</button>
+		<p>10,11,12,13,14,15,16,17,18,19,20</p>
+	</body>
+</html>
