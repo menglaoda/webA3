@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			//1.1, 写一个函数计算1到100的和, 并返回结果打印出来;(n为函数参数) 
+			function fn1(n){
+				var s = 0 ;
+				for(var i=0;i<=n;i++){
+					s+=i;
+				}
+				console.log(s);
+			}
+			fn1(100);
+			
+			//2, 写一个函数计算n的阶乘,并返回结果打印出来
+			function fn2(n){
+				var s=1;
+				for(var i=1;i<=n;i++){
+					s*=i;
+				}
+				console.log(s);
+			}
+			fn2(5);
+			
+			//3, 写一个函数计算两个数的最小公倍数; 并返回结果打印出来
+			function fn3(a,b){
+				for(var i=1;i<=a*b;i++){
+					if(i%a==0 && i%b==0){
+						console.log(i);
+						return false;
+					}
+				}
+			}
+			fn3(3,9);
+			
+			//4.写一个函数判断一个年份是不是闰年
+			function fn4(y){
+				if((y%4==0 && y%100!=0) || y%400==0){
+					console.log(y+"为闰年");
+				}else{
+					console.log(y+"为平年");
+				}
+			}
+			fn4(2000);
+			
+			//5.年月日分别为自定义函数的参数，判断某一个日期是否为正确的日期;
+			function fn5(y,m,d){
+				if(m==1 ||m==3||m==5||m==7||m==8||m==10||m==12){
+					if(d>0&&d<=31){
+						console.log(y+"年"+m+"月"+d+"日是一个正确的日期");
+					}else{
+						console.log(y+"年"+m+"月"+d+"日是一个错误的日期");
+					}
+				}
+				if(m==4 ||m==6||m==9||m==11){
+					if(d>0&&d<=30){
+						console.log(y+"年"+m+"月"+d+"日是一个正确的日期");
+					}else{
+						console.log(y+"年"+m+"月"+d+"日是一个错误的日期");
+					}
+				}
+				if(m==2){
+					if((y%4==0 && y%100!=0) || y%400==0){
+						if(d>0&&d<=29){
+							console.log(y+"年"+m+"月"+d+"日是一个正确的日期");
+						}else{
+							console.log(y+"年"+m+"月"+d+"日是一个错误的日期");
+						}
+					}else{
+						if(d>0&&d<=28){
+							console.log(y+"年"+m+"月"+d+"日是一个正确的日期");
+						}else{
+							console.log(y+"年"+m+"月"+d+"日是一个错误的日期");
+						}
+					}
+				}
+			}
+			fn5(2019,2,28);
+			
+			//6,用递归实现输入一个n,打印n个hello world
+			function fn6(n){
+				document.writeln("hello world <br />");
+				n>1?fn6(n-1):"";
+			}
+			fn6(5);
+			
+			//7.简易计算器
+			window.onload = function(){
+				var v1 = document.getElementById("v1");
+				var v2 = document.getElementById("v2");
+				var v3 = document.getElementById("v3");
+				var v4 = document.getElementById("v4");
+				var btn = document.getElementById("btn");
+				btn.onclick = function(){
+					if(v2.value =="+"){
+						v4.value = parseFloat(v1.value)+parseFloat(v3.value);
+					}else if(v2.value =="-"){
+						v4.value = v1.value-v3.value;
+					}else if(v2.value =="*"){
+						v4.value = v1.value*v3.value;
+					}else if(v2.value =="/"){
+						v4.value = v1.value/v3.value;
+					}else{
+						v4.value = "NAN";
+					}
+				}
+			
+				//9. 输入任意两个数，如果第一个数小，从第一个数打印到第二个数，如果第二个数小，从第二个数打印到第一个数。
+				var v5 = document.getElementById("v5");
+				var v6 = document.getElementById("v6");
+				var btn2 = document.getElementById("btn2");
+				var p1 = document.getElementById("p1");
+				btn2.onclick = function(){
+					p1.innerHTML = "";
+					if(v5.value>v6.value){
+						for(var i=v6.value;i<=v5.value;i++){
+							p1.innerHTML +=i+",";
+						}
+					}else{
+						for(var i=v5.value;i<=v6.value;i++){
+							p1.innerHTML +=i+",";
+						}
+					}
+				}
+			
+			
+			
+			
+			
+			}
+			
+			//8.找出100-1000以内所有的水仙花数
+			//153 = 1 ^ 3 + 5 ^ 3 + 3 ^ 3 
+			for(var i=100;i<1000;i++){
+				var g = i%10;
+				var s = parseInt(i/10)%10;
+				var b = parseInt(i/100);
+				if(i==g*g*g+s*s*s+b*b*b){
+					console.log(i+"为水仙花数");
+				}
+			}
+			
+			//
+		</script>
+	</head>
+	<body>
+		<h3>7.简易计算器</h3>
+		<input type="text" id="v1"/>
+		<input type="text" id="v2"/>
+		<input type="text" id="v3"/>
+		=
+		<input type="text" id="v4"/>
+		<button id="btn">计算</button>
+		<h3>9.第九题</h3>
+		<input type="text" id="v5" />
+		<input type="text" id="v6" />
+		<button id="btn2">打印</button>
+		<p id="p1"></p>
+	</body>
+</html>

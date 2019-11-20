@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			//1、求数组中所有元素的和；
+			var arr = [1,2,3,4,5];
+			var s = 0;
+			for(var i=0;i<arr.length;i++){
+				s+=arr[i];
+			}
+			console.log(s);
+			
+			//2.让数组中的元素交换位置（重要）
+			var arr2 = [12,34];
+			var box = arr2[0];
+			arr2[0] = arr2[1];
+			arr2[1] = box;
+			console.log(arr2);
+			
+			//3、求数组的最大数和最小数及它们的下标
+			var arr = [1,34,67,9,45,11];
+			var max =arr[0];
+			var maxi =0;
+			var min =arr[0];
+			var mini =0;
+			for(var i=0;i<arr.length;i++){
+				if(max<arr[i]){
+					max = arr[i];
+					maxi =i;
+				}
+				if(min>arr[i]){
+					min = arr[i];
+					mini =i;
+				}
+			}
+			console.log("最大数为："+max+",下标为："+maxi+",最小数为:"+min+",下标为："+mini);
+		
+		
+			//4.将数组[8,9,7,6,5,4]进行升序排序，[4,5,6,7,8,9]
+			var arr = [8,9,7,6,5,4];
+			for(var i=0;i<arr.length;i++){
+				for(var j=0;j<arr.length;j++){
+					if(arr[j]>arr[j+1]){
+						var box = arr[j];
+						arr[j]=arr[j+1];
+						arr[j+1]=box;
+					}
+				}
+			}
+			console.log(arr);
+			
+			//5.请将数组[1,46,74,3,5,5]中的元素右移1位，[5,1,46,74,3,5]
+			var arr = [1,46,74,3,5,5];
+			var arr1 = [];
+			for(var i=0;i<arr.length;i++){
+				arr1[i+1]=arr[i];
+			}
+			arr1[0]=arr1[arr1.length-1];
+			arr1.length=arr.length;
+			console.log(arr1);//"5,1,46,74,3,5"
+			
+			//6、在数组[1,46,74,3,5,5]的下标为2的位置插入一个数字8，结果为[1,46,8,74,3,5,5] 。
+			var arr = [1,46,74,3,5,5];
+			var arr1 = [];
+			for(var i=0;i<2;i++){
+				arr1[i]=arr[i];
+			}
+			for(var i=2;i<arr.length;i++){
+				arr1[i+1]=arr[i];
+			}
+			arr1[2] = 8;
+			console.log(arr1);//"1,46,8,74,3,5,5"
+			
+			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

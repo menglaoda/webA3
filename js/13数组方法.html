@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			var arr = ["张三","李四","王五"];
+			//1、push()方法可以接收任意数量的参数，把它们逐个添加到数组的末尾，并返回修改后数组的长度。
+			//var arr1 = arr.push("马六","小七");
+			
+			//2、pop()方法则从数组末尾移除最后一个元素，减少数组的 length 值，然后返回移除的元素。
+			//var arr1 = arr.pop();
+			
+			//3、shift() 方法从数组前端移除一个元素,返回被移除的元素
+			//var arr1 = arr.shift();
+			
+			//4、unshift() 方法从数组前端添加一个或多个元素，返回数组长度
+			//var arr1 = arr.unshift("小二");
+			
+			//5、reverse()        // 逆向排序, 原数组也被逆向排序了
+			//var arr1 = arr.reverse();
+			
+			//6、sort()     //从小到大排序 ,  原数组也被升序排序了,按字符串的方式排序
+//			var arr = [1,15,3,2];
+//			var arr1 = arr.sort(compare);
+//			function compare (value1, value2) {
+//				if (value1 < value2) {
+//					return -1;  //返回0和-1, 表示不交换值
+//				}
+//				else if (value1 == value2) {
+//					return 0;
+//				}
+//				else {
+//				   	return 1;   //返回1, 表示会交换值
+//				}
+//			}
+			
+			//7、concat() : 追加数据, 创建一个新数组, 不改变原数组
+			//var arr1 = arr.concat("马六");
+			
+			//8、slice():  不修改原数组, 将原数组中的指定区域数据提取出来
+			//var arr = [1,2,3,4,5,6,7,8,9];
+			//var arr1 = arr.slice(2,7);//[2,7)
+			
+			//9、splice(): 
+			//插入: 如果有3个或以上参数,且第二个参数(长度)为0,则表示插入
+			var arr = [1,2,3,4,5,6,7,8,9];
+			//var arr1 = arr.splice(3,0,100,200);
+			
+			//替换: 如果有3个或以上的参数, 且第二个参数(长度)不为0, 则表示替换
+			//var arr1 = arr.splice(2,3,44);
+			
+			//删除: 如果只有两个参数, 则表示删除指定区域的数据
+			//var arr1 = arr.splice(2,6);
+			//删除: 如果只有1个参数n, 则保留前n个数。
+			//var arr1 = arr.splice(5);
+			
+			//10、用数组的元素组成字符串 - box.join()
+			var str = arr.join("+");
+			console.log(arr);
+			console.log(str);
+			//console.log(arr1);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
