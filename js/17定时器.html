@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			//1.创建定期器
+			setInterval(function(){
+				console.log("a");
+			},1000)
+			
+			//2.
+			setInterval(fn,1000);
+			function fn(){
+				console.log("b");
+			}
+			
+			//3.
+			var timer = setInterval("console.log('c')",1000);
+			
+			//关闭定时器
+			clearInterval(timer);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

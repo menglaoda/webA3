@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			//1、 不改变原数组, 取出数组[3,2,4,5,8,6,3,9]中的[5,8,6].
+//			var arr = [3,2,4,5,8,6,3,9];
+//			console.log(arr.slice(3,6));
+			
+			//2、在数组[1,2,3,4,6,7,8]中对应的位置插入5, 变成[1,2,3,4,5,6,7,8]
+			var arr = [1,2,3,4,6,7,8];
+			var n = 71;
+			arr.push(n);
+			for(var i=0;i<arr.length;i++){
+				for(var j=0;j<arr.length;j++){
+					if(arr[j]>arr[j+1]){
+						var a1 = arr[j];
+						arr[j]=arr[j+1];
+						arr[j+1]=a1;
+					}
+				}
+			}
+			console.log(arr);
+			
+			//3、 将数组[“我”,“是”,“一”,“只”,“笨”,“鸟”]改成[“我”,“是”,“一”,“只”,“聪”,“明”,“鸟”], 并打印出: “我是一只聪明鸟”
+			var arr = ["我","是","一","只","笨","鸟"];
+			var arr1 = arr.splice(4,1,"聪","明");
+			console.log(arr.join(""));
+			
+			//4、删除数组[20,23,21,34,54,55,32]中的倒数第二个和倒数第三个元素
+			var arr = [20,23,21,34,54,55,32];
+			arr.splice(arr.length-3,2);
+			console.log(arr);
+			
+			//5、有一个从小到大排好序的数组。现输入一个数，要求按原来的规律将它插入数组中,       如:[2,3,4,56,67,98]    //63，[2,3,4,56,63,67,98]
+			var arr = [2,3,4,56,67,98];
+			var n= 63;
+			arr.push(n);
+			for(var i=0;i<arr.length;i++){
+				for(var j=0;j<arr.length;j++){
+					if(arr[j]>arr[j+1]){
+						var a1 = arr[j];
+						arr[j]=arr[j+1];
+						arr[j+1]=a1;
+					}
+				}
+			}
+			console.log(arr);	
+			
+			// 生成13位条形码(对之前的知识综合练习)
+//	        Ean-13码规则：第十三位数字是前十二位数字经过计算得到的校验码。
+//			例如：690123456789  -> [6,9,0,1,2,3,4,5,6,7,8,9]
+//			第十三位计算其校验码的过程为：
+//			@前十二位的奇数位和6+0+2+4+6+8=26
+//			@前十二位的偶数位和9+1+3+5+7+9=34
+//			@将奇数和与偶数和的三倍相加26+34*3=128
+//			@取结果的个位数：128的个位数为8
+//			@用10减去这个个位数10-8=2
+//			所以校验码为2（注：如果取结果的个位数为0，那么校验码不是（10-0=10），而是0）
+//			        实现函数ean13(n)计算验证码，输入12位条码，返回带验证码的条码。
+//			例如：输入：692223361219输出：6922233612192
+			var arr = [6,9,2,2,2,3,3,6,1,2,1,9];
+			var s1 = 0;
+			var s2 = 0;
+			for(var i=0;i<arr.length;i++){
+				if(i%2!=0){
+					s1+=arr[i];
+				}else{
+					s2+=arr[i];
+				}
+			}
+			
+			var n1 = 10-(s1*3+s2)%10;
+			if(n1==10){
+				console.log(arr.join("")+0);
+			}else{
+				var arr1 = arr.push(n1);
+				console.log(arr.join(""));
+			}
+			
+			//7、给定两个升序整型数组a和b，打印其共同元素，比如：a = [0, 1, 2, 3, 4]，b = [1, 3, 5, 7, 9]，输出 1, 3
+			var arr = [0, 1, 2, 3, 4];
+			var arr1 = [1, 3, 5, 7, 9];
+			var arr2 = [];
+			for(var i=0;i<arr.length;i++){
+				for(var j=0;j<arr1.length;j++){
+					if(arr[i]==arr1[j]){
+						arr2.push(arr[i]);
+					}
+				}
+			}
+			console.log(arr2);
+			
+			//8. var arr = [4, 0, 7, 9, 0, 0, 2, 6, 0, 4,6,9, 1, 0];
+			//要求将数组中的0项去掉，将不为0的值存入一个新的数组，生成新的数组
+			var arr = [4, 0, 7, 9, 0, 0, 2, 6, 0, 4,6,9, 1, 0];
+			var arr1 = [];
+			for(var i=0;i<arr.length;i++){
+				if(arr[i]!=0){
+					arr1.push(arr[i]);
+				}
+			}
+			console.log(arr1);
+			
+			//9.var arr = [0,1,2,3,4,4,5,6,7,7,8];去掉重复项
+			var arr = [1,1,2,2,3,4,4,5,6,7,7,8,4,2,5,7];
+			for(var i=0;i<arr.length;i++){
+				for(var j=i+1;j<arr.length;j++){
+					if(arr[i]==arr[j]){
+						arr.splice(j,1);
+						i--;
+					}
+				}
+			}
+			console.log(arr);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

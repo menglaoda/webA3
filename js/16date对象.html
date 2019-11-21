@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			//创建日期对象,获取的是当前时间；
+			var d = new Date();
+			
+			//指定时间
+			//var d = new Date("2019,11,21 15:55:20");
+			
+			//toDateString()  以特定的格式显示星期几、月、日和年
+			//var d1 = d.toDateString();//"Thu Nov 21 2019"
+			
+			//toTimeString()  以特定的格式显示时、分、秒和时区
+			//var d1 = d.toTimeString();//"15:55:20 GMT+0800 (中国标准时间)"
+			
+			//toLocaleDateString()  以特定地区格式显示年、月、日
+			//var d1 = d.toLocaleDateString();//"2019年11月21日"
+			
+			//getTime 获取某个日期自1970年以来的毫秒数
+			//var d1 = d.getTime();//"1574322920000"
+			
+			//setTime 修改日期的毫秒数，对应的日期时间也会修改
+			//var d1 = d.setTime(1000);
+			
+			//5、set / getDate()	   从Date对象中返回一个月中的某一天(1~31)
+//			var d1 = d.getDate();
+			//var d1 = d.setDate(10);
+			
+			//6、getDay()      从Date对象返回一周中的某一天(0~6),0表示星期天
+			//var d1 = d.getDay();
+			
+			//7、set / getMonth()    从Date对象中返回月份(0~11),0表示一月份
+			//var d1 = d.getMonth();
+			
+			//8、set / getFullYear()	从Date对象以四位数返回年份
+			//var d1 = d.getFullYear();
+			
+			//9、set / getHours()	             返回Date对象的小时(0~23)
+			//var d1 = d.getHours();
+			
+			//10、set / getMinutes()	返回Date对象的分钟(0~59)
+			//var d1 = d.getMinutes();
+			
+			//set / getSeconds()	返回Date对象的秒数(0~59)
+			//var d1 = d.getSeconds();
+			
+			//12、set / getMilliseconds()    返回Date对象的毫秒
+			//var d1 = d.getMilliseconds();
+			
+			//13、toString()	  把Date对象转换为字符串
+//			var d1 = d.toString();
+//			var num = 10;
+//			console.log(num.toString());
+
+			//14、valueOf()   返回Date对象的原始值
+			var d1 = d.valueOf();
+			console.log( d);//"Thu Nov 21 2019 15:55:20 GMT+0800 (中国标准时间)"
+			console.log(d1);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
