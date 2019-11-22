@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+				width: 200px;
+				height: 200px;
+				border: solid 1px black;
+				text-align: center;
+				line-height: 200px;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var arr = ["red", "blue", "yellow", "green", "black", "orange"];
+				var box = document.getElementById("box");
+				var n = 16;
+				var n2 = 2;
+				var n3 = 0;
+				var i =0;
+				setInterval(function(){
+					n3++;
+					n+=n2;
+					i++;
+					if(i==arr.length){
+						i=0;
+					}
+					if(n3%6==0){
+						n2*=-1;
+					}
+					box.style.fontSize =n+"px";				
+					box.style.color =arr[i];	
+				},1000)
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			看我72变
+		</div>
+	</body>
+</html>

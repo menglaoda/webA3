@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			//定义字符串
+			var str = new String("亲");
+			
+			//2.
+			var str = String("亲");
+			
+			//3.
+			var str = "hello  word";
+			
+			//length：表示字符串的长度；
+			console.log(str.length);
+			str[0] = "w";//不可以
+			console.log(str);//"hello  word"
+			
+			str = "wello word";
+			
+			/*
+				 big()		 用大号字体显示字符串
+				bold()	                  使用粗体显示字符串
+				fixed() 	                  以打字机文本显示字符串
+				strike()                       使用删除线来显示字符串      
+				fontcolor(“#00f”)    使用指定颜色来显示字符串
+				fontsize(22)	使用指定尺寸来显示字符串
+				link()		 将字符串显示为链接,不能改标签。
+				
+				sub()		 把字符串显示为下标
+				sup()		 把字符串显示为上标
+
+			 * 
+			 * */
+			document.write(str+"<br/>");
+			document.write(str.big()+"<br/>");
+			document.write(str.bold()+"<br/>");
+			document.write(str.fixed()+"<br/>");
+			document.write(str.strike()+"<br/>");
+			document.write(str.link("https://www.baidu.com"));
+			
+			//str.charAt(3)    //获取下标为3的字符
+			console.log(str.charAt(3));//str[3]
+			
+			//str.charCodeAt(3)   //获取下标为3的字符的编码(ASCII码)
+			console.log(str.charCodeAt(3));//"108"
+			
+			//String.fromCharCode(94)    //ASCII编码转换成字符
+			console.log(String.fromCharCode(65));
+			
+			//str.concat()  连接字符串
+			var str1 = "he123llo";
+			var str2 = "word";
+			console.log(str1+str2);
+			console.log(str1.concat(str2));
+			
+			// str.indexOf("abc")  查找字符串第一次出现的位置,如果没找到则返回-1
+			console.log(str1.indexOf("l"));
+			
+			// str.lastIndexOf("abc")  查找字符串最后一次出现的位置，如果没找到则返回-1
+			console.log(str1.lastIndexOf("l"));
+			
+			// str.search() 正则匹配 (返回第一次出现的位置)
+			console.log(str1.search("l"));
+			
+			//正则表达式
+			var re = /[a-z]/;
+			// test() 方法用于检测一个字符串是否匹配某个模式.
+			var str1 = "含e123llo";
+			console.log(/^[a-z]{3,6}$/.test("aaa1a"));
+			
+			// str.replace() 替换字符串
+			var str1 = "含e123lLo";
+//			var str2 = str1.replace("l","w");
+			//var str2 = str1.replace(/l/gi,"w");
+			
+			//substring(start,end); //截取字符串 范围是[start, end)
+			//var str2 = str1.substring(2,5);
+			
+			//split(separator, howmany)—根据分隔符、拆分成数组
+			var str2 = str1.split("");
+			console.log(str2);
+			console.log(str2.join(""));
+			
+			//eval() 方法可计算某个字符串
+			var str = "2*3+4"
+			console.log(eval(str));
+			
+			//toLowerCase() 方法用于把字符串转换成小写
+			var str = "hello WORD";
+			console.log(str.toLowerCase());
+			
+			//toUpperCase() 方法用于把字符串转换成大写
+			console.log(str.toUpperCase());
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

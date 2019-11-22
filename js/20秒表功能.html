@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload = function(){
+				var p1 = document.getElementById("p1");
+				var btn1 = document.getElementById("btn1");
+				var btn2 = document.getElementById("btn2");
+				var timer ;
+				btn1.onclick = function(){
+					var h = 0;
+					var m = 0;
+					var s = 0;
+					var ms = 0;
+					clearInterval(timer);
+					timer = setInterval(function(){
+						ms+=500;
+						if(ms==1000){
+							ms=0;
+							s+=1;
+						}
+						if(s==60){
+							s=0;
+							m+=1;
+						}
+						if(m==60){
+							h+=1;
+							m=0;
+						}
+						p1.innerHTML = fn(h)+"时"+fn(m)+"分"+fn(s)+"秒"+ms+"毫秒";
+					},500)
+				}
+				btn2.onclick = function(){
+					clearInterval(timer);
+				}
+				function fn(n){
+					return n<10?"0"+n:n;
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<p id="p1">00时00分00秒00毫秒</p>
+		<button id="btn1">开始计时</button>
+		<button id="btn2">结束计时</button>
+	</body>
+</html>

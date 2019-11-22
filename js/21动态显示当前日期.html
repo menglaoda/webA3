@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload = function(){
+				var p1 = document.getElementById("p1");
+				setInterval(function(){
+					var d = new Date();
+					var y = d.toLocaleDateString();
+					var h = d.getHours();
+					var m = d.getMinutes();
+					var s = d.getSeconds();
+					var d = d.getDay();
+					if(d==0){
+						d="天";
+					}else if(d==1){
+						d="一";
+					}else if(d==2){
+						d="二";
+					}else if(d==3){
+						d="三";
+					}else if(d==4){
+						d="四";
+					}else if(d==5){
+						d="五";
+					}else if(d==6){
+						d="六";
+					}
+					
+					p1.innerHTML = y+" "+fn(h)+":"+fn(m)+":"+fn(s)+" 星期"+d;
+				},1000);
+				function fn(n){
+					return n<10?"0"+n:n;
+				}
+			}
+			
+		</script>
+	</head>
+	<body>
+		<p id="p1">2019年11月22日  14:32:40 星期五</p>
+	</body>
+</html>

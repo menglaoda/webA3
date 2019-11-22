@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			//2、判断两个日期相差的天数
+			var d1 = new Date("2019-11-22");
+			var d2 = new Date("2019-12-23");
+			var num = (d1.valueOf()-d2.valueOf())/(1000*60*60*24);
+			if(num>0){
+				console.log(num);
+			}else{
+				console.log(-num);
+			}
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
