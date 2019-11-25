@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+				width: 100px;
+				height: 100px;
+				background: red;
+			}
+		</style>
+		<script type="text/javascript">
+			//获取[0-10]中的随机整数
+			var n1 = Math.round(Math.random()*255);
+			console.log(n1);
+			
+			//1、点击button 启动定时器,每一秒随机给它换一次颜色。
+			window.onload = function(){
+				var box = document.getElementById("box");
+				var btn = document.getElementById("btn");
+				var timer ;
+				btn.onclick = function(){
+					clearInterval(timer);
+					timer = setInterval(function(){
+						box.style.background = "rgb("+Math.round(Math.random()*255)+","+Math.round(Math.random()*255)+","+Math.round(Math.random()*255)+")"
+					},1000);
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box"></div>
+		<button id="btn">改变颜色</button>
+	</body>
+</html>

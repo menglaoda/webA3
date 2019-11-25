@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				height: 5000px;
+			}
+			#box{
+				height: 500px;
+				background: red;
+			}
+		</style>
+		<script type="text/javascript">
+			//滚动事件
+			window.onscroll = function(){
+				//console.log("a");
+				//获取滚动条距离顶部的距离
+				var top = document.body.scrollTop || document.documentElement.scrollTop;
+				console.log(top);
+			}
+			window.onload = function(){
+				var btn =document.getElementById("btn");
+				var i =500 ;
+				btn.onclick = function(){
+//					var n =3 ;
+//					var timer = setInterval(function(){			
+//						i+=n;
+//						n+=2;
+//						box.style.height = i+"px";
+//						if(i>=100){
+//							clearInterval(timer);
+//						}
+//					},30)
+
+					var n =90 ;
+					var timer = setInterval(function(){			
+						i-=n;
+						n*=0.8;
+						box.style.height = i+"px";
+						if(i<=0){
+							clearInterval(timer);
+						}
+					},100)
+				}
+//				var s = 0;
+//				for(var i=0;i<=100;i++){
+//					if(i%2!=0){
+//						s+=i;
+//						document.write(s+"<br />");
+//						if(s>=200){
+//							return false;
+//						}
+//					}
+//				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box"></div>
+		<button id="btn">按钮</button>
+	</body>
+</html>
