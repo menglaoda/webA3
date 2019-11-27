@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+				height: 50px;
+				background: red;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				//获取元素节点方法；
+				//getElementById()
+				var box = document.getElementById("box");
+				
+				//getElementsByTagName()方法将返回一个数组
+				var op = document.getElementsByTagName("p");
+				console.log(op);
+				console.log(op[0].innerHTML);
+				
+				//getElementsByName()方法可以获取相同名称(name)的元素，返回一个对象数组 
+				var mytext = document.getElementsByName("mytext");
+				console.log(mytext[0].value)
+				
+				//getElementsByClassName()方法可以获取相同类名的元素，返回一个对象数组
+				var span1 = document.getElementsByClassName("span1");
+				console.log(span1[0].innerHTML);
+				
+				var list = document.getElementById("list");
+				var oli = list.getElementsByTagName("li");
+				console.log(oli.length);
+				
+				//元素节点的其他常用属性
+				console.log(box.title);//点语法
+				console.log(box["title"]);//中括号表示法
+				console.log(mytext[0].width);
+				console.log(box.style.width);
+				
+				// getAttribute()方法将获取元素中某个属性的值。
+				console.log(mytext[0].getAttribute("width"));
+				console.log(box.getAttribute("name"));
+				console.log(box.getAttribute("class"));
+				
+				//setAttribute()方法将设置元素中某个属性和值。
+				box.setAttribute("class","ooo");
+				box.setAttribute("abc","aaa");
+				
+				//removeAttribute() 可以移除 HTML 属性。
+				box.removeAttribute("name");
+				
+				//innerHTML
+				console.log(box.innerHTML);//<span>测试Div</span>
+				
+				//innerText
+				console.log(box.innerText);//"测试Div"
+				
+				//outerHTML
+				console.log(box.outerHTML);
+//				<div style="width: 200px;" id="box" class="ooo" title="属性节点" abc="aaa">
+//					<span>测试Div</span>
+//				</div>
+			}
+		</script>
+	</head>
+	<body>
+		<div style="width: 200px;" id="box" class="obox" name="mybox" title="属性节点">
+			<span>测试Div</span>
+		</div>
+		<p>1单身快乐和房价快速导航反抗军的设计费</p>
+		<p>2单身快乐和房价快速导航反抗军的设计费</p>
+		<p>3单身快乐和房价快速导航反抗军的设计费</p>
+		<p>4单身快乐和房价快速导航反抗军的设计费</p>
+		<p>5单身快乐和房价快速导航反抗军的设计费</p>
+		<input type="text" value="123" width="100" name="mytext" />
+		<span class="span1">1sds</span>
+		<span class="span1">2sds</span>
+		<!--div：元素节点
+		title="属性节点"：属性节点
+		测试Div ：文本节点-->
+		<ul id="list">
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+		</ul>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+		</ul>
+	</body>
+</html>
