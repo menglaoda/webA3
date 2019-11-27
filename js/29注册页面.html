@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			ul{
+				list-style: none;
+			}
+			#yzm{
+				width: 100px;
+			}
+			#number{
+				padding: 0px 4px;
+				border: solid 1px black;
+			}
+			#span1,#span2{
+				color: red;
+				display: none;
+			}
+		</style>
+		<script type="text/javascript">
+//			功能：填写用户名，密码，确认密码，验证码，完成注册
+//			要求：
+//			1、用户名不可以用数字开头，不能为空，用户名长度不低于6，不高于20
+//			2、密码不能为空
+//			3、两次填写密码必需一致才能提交
+//			4、随机生成验证码，如： 4YT8，验证码要有切换功能，能忽略大小写
+//			5、数据合法，点击提交才可以正确提交表单数据
+			window.onload = function(){
+				var username = document.getElementById("username");
+				var psw1 = document.getElementById("psw1");
+				var psw2 = document.getElementById("psw2");
+				var span1 = document.getElementById("span1");
+				var span2 = document.getElementById("span2");
+				var yzm = document.getElementById("yzm");
+				var number1 = document.getElementById("number");
+				var btn = document.getElementById("btn");
+			
+				//随机生成验证码；
+				function fn(){
+					var n1 = Math.floor(Math.random()*10);
+					var n2 = Math.floor(Math.random()*10);
+					var n3 =String.fromCharCode(Math.floor(Math.random()*26)+65);
+					var n4 =String.fromCharCode(Math.floor(Math.random()*26)+65);
+					var arr = [n1+""+n2+n3+n4,n1+n3+n2+n4,n1+n3+n4+n2,n1+n4+n2+n3,n1+n4+n3+n2,n2+""+n1+n3+n4,n2+""+n1+n4+n3,n2+n3+n1+n4,n2+n3+n4+n1,n2+n4+n1+n3,n2+n4+n3+n1];
+					var num = arr[Math.round(Math.random()*10)];
+					number1.innerHTML = num;
+				}
+				fn();
+				number1.onclick = function(){
+					fn();
+				}
+				btn.onclick = function(){
+					var a1 = 0 ;
+					var a2 = 0 ;
+					var a3 = 0 ;
+					var userval = username.value;
+					if(userval.length==0 || /[0-9]/.test(userval[0]) ||userval.length<6 ||userval.length>20){
+						span1.style.display = "inline-block";
+						username.value = "";
+						a1=0;
+					}else{
+						span1.style.display = "none";
+						a1=1
+					}
+					
+					if(psw1.value ==""||psw2.value==""||psw1.value!=psw2.value){
+						span2.style.display = "inline-block";	
+						a2 = 0 ;
+					}else{
+						span2.style.display = "none";	
+						a2 = 1;
+					}
+					
+					if(yzm.value.toUpperCase() != number1.innerHTML ){
+						fn();
+						yzm.value = "";
+						a3 = 0 ;
+					}else{
+						a3 = 1
+					}
+					
+					if(a1==1 && a2 ==1&& a3 == 1){
+						alert("完成注册");
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<ul>
+			<li>
+				<input type="text" placeholder="请输入用户名" id="username"/>
+				<span id="span1">X</span>
+			</li>
+			<li>
+				<input type="password" placeholder="请输入密码" id="psw1"/>
+			</li>
+			<li>
+				<input type="password" placeholder="请输入密码" id="psw2"/>
+				<span id="span2">X</span>
+			</li>
+			<li>
+				<input type="text" placeholder="请输入验证码" id="yzm" />
+				<span id="number">12AB</span>
+			</li>
+			<li>
+				<button id="btn">完成注册</button>
+			</li>
+		</ul>
+		
+		
+	</body>
+</html>

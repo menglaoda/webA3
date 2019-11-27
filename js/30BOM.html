@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			//
+			//window.alert("弹出框");
+			
+			//confirm(): 创建一个需要用户确认的对话框
+			//window.confirm("请点击确定或取消");
+			
+			//prompt(text,defaultInput) :创建一个对话框要求用户输入信息
+			//var num = prompt("请输入一个数字");
+			//alert(num);
+			
+			//open(url,name,[options]) : 打开一个新窗口并返回新 window 对象
+			window.onload = function(){
+				var btn = document.getElementById("btn");
+				btn.onclick = function(){
+					open("29注册页面.html","_blank","width=400,height=300,top=400,left=800");
+				}
+			}
+			
+			//延时器
+			setTimeout(function(){
+				console.log("a");
+			},1000)
+			
+			setTimeout(fn,1000);
+			function fn(){
+				console.log("b");
+				//window.close();
+				window.open("about:blank","_parent").close()
+			}
+			
+			var timer =  setTimeout("console.log('c')",1000);
+			
+			//关闭延时器
+			clearTimeout(timer);
+			
+			//window.close() 关闭窗口
+			
+		</script>
+	</head>
+	<body>
+		<span id="btn">百度</span>
+	</body>
+</html>

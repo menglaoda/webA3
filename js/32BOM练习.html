@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body{
+				height: 5000px;
+			}
+			#box1{
+				background: red;
+				position: fixed;
+				width: 100%;
+				height: 0px;
+				display: none;
+				z-index: 99;
+			}
+			#box2{
+				height: 1000px;
+				background: palegreen;
+			}
+			#box3{
+				height: 1000px;
+				background: peru;
+				position: relative;
+			}
+			#rightbox{
+				width: 100px;
+				height: 500px;
+				background: blue;
+				margin-top: 20px;
+				position: absolute;
+				right: 50px;
+				top: 0px;
+			}
+			#btn{
+				position: absolute;
+				bottom: 0px;
+				width: 100px;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var box1 = document.getElementById("box1");
+				var rightbox = document.getElementById("rightbox");
+				var btn = document.getElementById("btn");
+				var timer ;
+				var timer2;
+				var h=0;
+				var running = 0;
+				var n = 100;
+				var n1 = 100;
+				var top = 0;
+				window.onscroll = function(){
+					top = document.body.scrollTop||document.documentElement.scrollTop;
+					console.log(top);
+					if(top>=1000){
+						//console.log(running);
+						rightbox.style.position = "fixed";
+						if(running==0){
+							box1.style.display = "block";
+							clearInterval(timer);
+							timer = setInterval(function(){
+								var speed = Math.ceil((n-h)*0.1);
+								h += speed;
+								box1.style.height = h+"px";
+								//右边盒子
+								rightbox.style.top = h+"px";
+								if(h==100){
+									clearInterval(timer);
+									running =1;
+								}
+							},50)
+						}
+						
+						
+						
+					}else{
+						box1.style.display = "none";
+						h=0;
+						box1.style.height = 0+"px";	
+						running = 0;
+						
+						//右边盒子
+						rightbox.style.position = "absolute";
+						rightbox.style.top = 0+"px";
+					}
+				}
+				//返回顶部
+				btn.onclick = function(){
+					var timer3 = setInterval(function(){
+						top=Math.floor(top*0.7);
+						document.body.scrollTop = document.documentElement.scrollTop = top;
+						if(top==0){
+							clearInterval(timer3);
+						}
+						console.log(top);
+					},50)
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box1"></div>
+		<div id="box2">
+			
+		</div>
+		<div id="box3">
+			<div id="rightbox">
+				<button id="btn">返回顶部</button>
+			</div>
+		</div>
+	</body>
+</html>
