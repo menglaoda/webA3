@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			img{
+				width: 300px;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var oimg = document.getElementsByTagName("img");
+				for(var i=0;i<oimg.length-1;i++){
+					oimg[i].onclick = function(){
+						oimg[3].src = this.src;
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<img src="img/ia_100000000265.jpg" />
+		<img src="img/ia_100000000266.jpg" />
+		<img src="img/ia_100000000267.jpg" />
+		<br />
+		<img src="img/ia_100000000265.jpg" />
+	</body>
+</html>
