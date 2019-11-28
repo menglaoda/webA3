@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload = function(){
+				var box = document.getElementById("box");
+				//attributes属性: 返回该元素节点的属性节点集合。
+				console.log(box.attributes);
+				console.log(box.attributes[2]);
+				
+				//nodeType 返回节点类型，1为元素节点，2为属性类型，3为文本节点 
+				console.log(box.attributes[2].nodeType);
+				
+				//nodeName 返回属性名
+				console.log(box.attributes[0].nodeName);
+				
+				//nodeValue 返回属性值
+				console.log(box.attributes[2].nodeValue);
+				
+				console.log(box.attributes["class"].nodeValue);
+				
+				console.log(box.attributes.getNamedItem("name").nodeValue);
+				
+				//childNodes: 子节点集合
+				console.log(box.childNodes);
+				
+				//获取第一个子节点
+				console.log(box.firstChild);//box.childNodes[0]
+				
+				//获取最后一个子节点
+				console.log(box.lastChild);
+				
+				//获取文本内容
+				console.log(box.childNodes[0].nodeValue);
+				
+				//parentNode 属性返回该节点的父节点，
+				console.log(box.parentNode);
+				
+				//previousSibling 属性返回该节点的前一个同级节点
+				console.log(box.previousSibling);
+				
+				//nextSibling 属性返回该节点的后一个同级节点。
+				console.log(box.nextSibling);
+				
+				// ownerDocument 属性返回该节点的文档对象根节点
+				console.log(box.ownerDocument);
+				
+				//createElement()方法可以创建一个元素节点。
+				var span1 = document.createElement("span");
+				
+				span1.innerHTML = "这是一个span标签";
+				
+				//appendChild()方法将一个新节点添加到某个节点的子节点列表的末尾上。 
+				box.appendChild(span1);
+				
+				//createTextNode() 方法创建一个文本节点。
+				var text1 = document.createTextNode("觉得幸福和顾客的价格和东风科技高科技");
+				box.appendChild(text1);
+				
+				//insertBefore()方法可以把节点插入到指定节点的前面，通过父节点调用。 
+				var h2 = document.createElement("h2");
+				h2.innerHTML = "这是一个h2标签";
+				//box.parentNode.insertBefore(h2,box);
+				
+				//replaceChild()方法可以把节点替换成指定的节点，通过父节点调用。
+				//box.parentNode.replaceChild(h2,box);
+				
+				//removeChild()方法可以删除指定子节点，通过父节点调用
+				//box.parentNode.removeChild(box);
+			}
+			
+		</script>
+	</head>
+	<body>
+		<div id="box" class="obox" name="mybox" title="这是一个div">dsadsa
+			<p>结果合法结构化</p>
+			<h3>开发机构开发简单</h3>
+		</div>
+	</body>
+</html>
