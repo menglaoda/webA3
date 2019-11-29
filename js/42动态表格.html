@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.active{
+				color: blue;
+				text-decoration: underline;
+				cursor: pointer;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var ip = document.getElementsByTagName("input");
+				var btn = document.getElementById("btn");
+				var tab = document.getElementById("tab");
+				btn.onclick = function(){
+					var tr = document.createElement("tr");
+					var td1 = document.createElement("td");
+					var td2 = document.createElement("td");
+					var td3 = document.createElement("td");
+					var td4 = document.createElement("td");
+					
+					td1.innerHTML = ip[0].value;
+					td2.innerHTML = ip[1].value;
+					td3.innerHTML = ip[2].value;
+					td4.innerHTML = "删除";
+					td4.className = "active";
+					tr.setAttribute("align","center")
+					
+					tr.appendChild(td1);
+					tr.appendChild(td2);
+					tr.appendChild(td3);
+					tr.appendChild(td4);
+					tab.appendChild(tr);
+					
+					td4.onclick = function(){
+						tr.parentNode.removeChild(tr);
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<input type="text" placeholder="ID" />
+		<input type="text" placeholder="姓名" />
+		<input type="text" placeholder="电话" />
+		<button id="btn">保存</button>
+		<table id="tab" border="1" width="500">
+			<tr>
+				<th>ID</th>
+				<th>Name</th>
+				<th>Tel</th>
+				<th>操作</th>
+			</tr>
+		</table>
+	</body>
+</html>

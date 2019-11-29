@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				text-align: center;
+			}
+			span{
+				border: solid 1px black;
+				width: 80px;
+				display: inline-block;
+				height: 26px;
+				line-height: 26px;
+				margin-top: -1px;
+				margin-left: -1px;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				for(var i=1;i<=9;i++){
+					for(var j=1;j<=i;j++){
+						var span = document.createElement("span");
+						span.innerHTML = i+"✖"+j+"="+i*j;
+						document.body.appendChild(span);
+					}
+					var br = document.createElement("br");
+					document.body.appendChild(br);
+				}
+			}
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
