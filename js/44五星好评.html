@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			li span:first-child{
+				font-size: 30px;
+			}
+			img{
+				width: 40px;
+			}
+			li span:last-child{
+				font-size: 30px;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var oimg = document.getElementsByTagName("img");
+				for(var i=0;i<oimg.length;i++){
+					oimg[i].index = i;
+					oimg[i].onclick = function(){
+						var n = this.index;
+						if(this.index>4){
+							n=this.index%5;
+						}
+						console.log(n);
+						var img1 = this.parentNode.getElementsByTagName("img");
+						for(var j=0;j<img1.length;j++){
+							img1[j].src = "img/xing2.png";
+						}
+						for(var j=0;j<=n;j++){
+							img1[j].src = "img/xing1.jpg";
+						}
+						if(n==0){
+							this.parentNode.getElementsByClassName("span1")[0].innerHTML = "非常差";
+						}else if(n==1){
+							this.parentNode.getElementsByClassName("span1")[0].innerHTML = "差";
+						}else if(n==2){
+							this.parentNode.getElementsByClassName("span1")[0].innerHTML = "一般";
+						}else if(n==3){
+							this.parentNode.getElementsByClassName("span1")[0].innerHTML = "好";
+						}else if(n==4){
+							this.parentNode.getElementsByClassName("span1")[0].innerHTML = "非常好";
+						}
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<ul>
+			<li>
+				<span id="">服务态度：</span>
+				<img src="img/xing2.png" />
+				<img src="img/xing2.png" />
+				<img src="img/xing2.png" />
+				<img src="img/xing2.png" />
+				<img src="img/xing2.png" />
+				<span class="span1">一般</span>
+			</li>
+			<li>
+				<span id="">产品质量：</span>
+				<img src="img/xing2.png" />
+				<img src="img/xing2.png" />
+				<img src="img/xing2.png" />
+				<img src="img/xing2.png" />
+				<img src="img/xing2.png" />
+				<span class="span1">一般</span>
+			</li>
+			<li>
+				<span id="">物流速度：</span>
+				<img src="img/xing2.png" />
+				<img src="img/xing2.png" />
+				<img src="img/xing2.png" />
+				<img src="img/xing2.png" />
+				<img src="img/xing2.png" />
+				<span class="span1">一般</span>
+			</li>
+		</ul>
+	</body>
+</html>

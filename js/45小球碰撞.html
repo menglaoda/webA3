@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.obox{
+				width: 400px;
+				height: 400px;
+				border: solid 1px black;
+				margin: 100px auto;
+				position: relative;
+			}
+			.redbox{
+				width: 20px;
+				height: 20px;
+				background: red;
+				position: absolute;
+				top: 20px;
+				left: 20px;
+			}
+			.bluebox{
+				width: 20px;
+				height: 20px;
+				background: blue;
+				position: absolute;
+				top: 20px;
+				left: 360px;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var obox = document.getElementsByClassName("obox")[0];
+				var redbox = document.getElementsByClassName("redbox")[0];
+				var bluebox = document.getElementsByClassName("bluebox")[0];
+				var x = 2;
+				var y = 4;
+				var x1 = 2;
+				var y1 = 4;
+				setInterval(function(){
+					//获取redbox的当前位置
+					var redtop = redbox.offsetTop;
+					var redleft = redbox.offsetLeft;
+					var bluetop = bluebox.offsetTop;
+					var blueleft = bluebox.offsetLeft;
+					
+					//是否碰到下边框
+					if(redtop>=obox.clientHeight-redbox.clientHeight ||redtop<=0){
+						y*=-(Math.random()*0.2+0.9);
+					}
+					if(redleft<=0 ||redleft>=obox.clientWidth-redbox.clientWidth){
+						x*=-(Math.random()*0.2+0.9);
+					}
+					
+					if(bluetop>=obox.clientHeight-bluebox.clientHeight ||bluetop<=0){
+						y1*=-(Math.random()*0.2+0.9);
+					}
+					if(blueleft<=0 ||blueleft>=obox.clientWidth-bluebox.clientWidth){
+						x1*=-(Math.random()*0.2+0.9);
+					}
+					
+					//两小球碰撞
+					if(bluetop>redtop+redbox.clientHeight||blueleft+bluebox.clientWidth<redleft||bluetop+bluebox.clientHeight<redtop||blueleft>redleft+redbox.clientWidth){
+						
+					}else{
+						x*=-1;
+						y*=-1;
+						x1*=-1;
+						y1*=-1;
+						console.log("a");
+					}
+					redbox.style.top = redtop+y+"px";
+					redbox.style.left = redleft+x+"px";
+					bluebox.style.top = bluetop+y1+"px";
+					bluebox.style.left = blueleft+x1+"px";
+					
+				},20)
+			}
+		</script>
+	</head>
+	<body>
+		<div class="obox">
+			<div class="redbox"></div>
+			<div class="bluebox"></div>
+		</div>
+	</body>
+</html>
