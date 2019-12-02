@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				height: 3000px;
+			}
+			.img1{
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				width: 50px;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var btn = document.getElementById("btn");
+				btn.onclick = function(evt){
+					//console.log(arguments[0]);
+					//获取event对象
+					var e = evt||event;
+					console.log(e);
+				}
+				
+				function fn(){
+					console.log(arguments[0]);
+				}
+				fn();
+				
+				document.onmousemove= function(evt){
+					var e = evt||event;
+					//button属性
+					console.log(e.button);
+					console.log(e);
+					//可视区坐标，屏幕区坐标
+					console.log("可视区坐标"+e.clientX+","+e.clientY+",屏幕区坐标"+e.screenX+","+e.screenY);
+					//1, 鼠标点击某处, 让精灵移动到该处 (如下图)
+					var img1 = document.getElementsByClassName("img1")[0];
+					img1.style.top = e.clientY+"px";
+					img1.style.left = e.clientX+"px"
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<button id="btn">按钮</button>
+		<img class="img1" src="img/ia_100000002.png" />
+	</body>
+</html>

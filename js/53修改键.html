@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload = function(){
+				window.onkeydown = function(evt){
+					var evt = evt||event;
+					if(evt.shiftKey){
+						console.log("按下了shift");
+					}
+					if(evt.altKey){
+						console.log("按下了alt");
+					}
+					if(evt.ctrlKey &&evt.keyCode==67){
+						console.log("按下了ctrl+c");
+					}
+					if(evt.metaKey){
+						console.log("按下了meta");
+					}
+					//1. 键码 : keyCode属性
+					console.log(evt.keyCode);
+					if(evt.keyCode==38){
+						console.log("按了上方向键")
+					}
+				}
+				window.onkeypress = function(evt){
+					var evt = evt||event;
+					//2.字符编码 : charCode属性
+					console.log(evt.charCode);
+				}
+			}
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

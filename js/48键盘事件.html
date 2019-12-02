@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			//keydown：当用户按下键盘上某个键触发，如果按住不放，会重复触发。
+			window.onkeydown = function() {
+			        console.log("按下了键盘上的某个键"); 
+			};
+			
+			//keypress：当用户按下键盘上的字符键触发，如果按住不放，会重复触发
+			window.onkeypress = function() { 
+			        console.log('按下了键盘上的字符键'); 
+			};
+			
+			//keyup：当用户释放键盘上的某个键触发。
+			window.onkeyup = function() {
+			        console.log("松开键盘上的某个键"); 
+			};
+
+
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

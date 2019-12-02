@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			//内联模式
+			function fn1(){
+				alert("1");
+			}
+			
+			//脚本模式
+			window.onload = function(){
+				var btn2 = document.getElementById("btn2");
+//				btn2.onclick = function(){
+//					alert("2");
+//				}
+
+				btn2.onclick = fn2;
+				function fn2(){
+					alert("2");
+				}
+				
+			}
+		</script>
+	</head>
+	<body>
+		<button id="btn1" onclick="fn1()">按钮1之内联模式</button>
+		<button id="btn2">按钮2之脚本模式</button>
+	</body>
+</html>

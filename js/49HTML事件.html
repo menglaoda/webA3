@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				height: 5000px;
+			}
+		</style>
+		<script type="text/javascript">
+			//load：当页面完全加载后触发
+			window.onload = function() { 
+			    console.log('页面已经加载完毕'); 
+			    var input = document.getElementsByTagName("input")[0];
+			    //select：当用户选择文本框(input 或 textarea)中的内容触发。 
+				input.onselect = function() { 
+				        console.log('选择了文本框中的内容'); 
+				};
+				
+				//change：当文本框(input 或 textarea)内容改变且失去焦点后触发。 
+				input.onchange = function() { 
+				        console.log('文本框中内容改变了1'); 
+				};
+				
+				//input：当文本框(input 或 textarea)内容改变时触发。 
+				input.oninput = function() { 
+				        console.log('文本框中内容改变了2'); 
+				};
+				
+				//focus：当页面或者元素获得焦点时触发。 
+				input.onfocus = function() { 
+				        console.log('文本框获得焦点'); 
+				};
+				
+				//blur：当页面或元素失去焦点时触发。
+				input.onblur = function() { 
+				        console.log('文本框失去焦点'); 
+				};
+				
+				var form = document.getElementsByTagName("form")[0];
+				//submit：当用户点击提交按钮在<form>元素节点上触发。 
+				form.onsubmit = function() {
+				        console.log('提交form表单'); 
+				};
+
+				//reset：当用户点击重置按钮在<form>元素节点上触发。 
+				form.onreset = function() { 
+				        console.log('重置form表单'); 
+				};
+
+				//scroll：当用户滚动页面触发。
+				window.onscroll= function() { 
+				        console.log('滚动了滚动条了'); 
+				};
+
+
+
+			};
+			
+			//unload：当页面完全卸载后触发
+			window.onunload = function() { 
+			        console.log('页面已经卸载完毕'); 
+			};
+
+		</script>
+	</head>
+	<body>
+		<form>
+			<input type="text" />
+			<input type="submit" />
+			<input type="reset" />
+		</form>
+	</body>
+</html>

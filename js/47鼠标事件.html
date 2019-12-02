@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+				border: solid 1px black;
+				width: 200px;
+				height: 200px;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var btn = document.getElementById("btn");
+				//click： 当单击鼠标按钮并在松开时触发
+				btn.onclick = function() {
+				    console.log('单击了鼠标'); 
+				};
+				
+				//dblclick： 当双击鼠标按钮时触发。
+				btn.ondblclick = function() {
+				        console.log('双击了鼠标'); 
+				};
+
+				//mousedown：当按下了鼠标还未松开时触发。 
+				btn.onmousedown = function() {
+				        console.log('按下鼠标'); 
+				};
+				
+				//mouseup： 释放鼠标按钮时触发。 
+				btn.onmouseup = function() {
+				        console.log('松开了鼠标'); 
+				};
+				
+				//mouseover：当鼠标移入某个元素的那一刻触发。
+				btn.onmouseover = function() {
+				        console.log('鼠标移入了'); 
+				}; 
+				
+				//mouseout：当鼠标刚移出某个元素的那一刻触发。 
+				btn.onmouseout = function() {
+				        console.log('鼠标移出了'); 
+				};
+				
+				//mousemove：当鼠标指针在某个元素上移动时触发。
+				btn.onmousemove = function() {
+				        console.log('鼠标移动了'); 
+				};  
+
+//				    有一块空白区域,
+//				    当鼠标移动到区域内,显示"亲爱的, 我爱你",
+//				    当我鼠标移开的时候,显示"对不起, 开玩笑",
+//				    当我鼠标不停的在区域内移动的时候, 显示"正在移动",
+
+				var box = document.getElementById("box");
+				box.onmouseover = function(){
+					box.innerHTML = "亲爱的, 我爱你";
+				}
+				box.onmouseout = function(){
+					box.innerHTML = "对不起, 开玩笑";
+				}
+				box.onmousemove = function(){
+					box.innerHTML = "正在移动";
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<button id="btn">按钮</button>
+		<div id="box"></div>
+	</body>
+</html>
