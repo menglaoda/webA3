@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#box{
+				width: 60px;
+				text-align: center;
+				line-height: 30px;
+				border: solid 1px black;
+				position: fixed;
+				top: 100px;
+				left: 100px;
+				display: none;
+			}
+			#box a{
+				display: block;
+				border-bottom: solid 1px black;
+				text-decoration: none;
+				color: black;
+			}
+			#box a:last-child{
+				border: none;
+			}
+			#box a:hover{
+				background: #ccc;
+				color: white;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var box = document.getElementById("box");
+				document.oncontextmenu = function(e){
+					var e = e||event;
+					var x1 = e.clientX;
+					var y1 = e.clientY;
+					box.style.top = y1+"px";
+					box.style.left = x1+"px";
+					box.style.display = "block";
+					console.log(e.button);
+					return false;
+				}
+				document.onclick = function(){
+					box.style.display = "none";
+				}
+				box.onclick = function(e){
+					box.style.display = "block";
+					var e = e||event;
+					e.cancelBubble = true;
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			<a href="#">复制</a>
+			<a href="#">粘贴</a>
+			<a href="#">剪切</a>
+		</div>
+	</body>
+</html>

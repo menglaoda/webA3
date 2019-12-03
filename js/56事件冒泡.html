@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0px;
+			}
+			#box1{
+				width: 400px;
+				height: 400px;
+				background: blue;
+				margin: 100px auto;
+				color: white;
+			}
+			#box2{
+				width: 300px;
+				height: 300px;
+				background: gold;
+				margin:30px 50px;
+			}
+			#box3{
+				width: 200px;
+				height: 200px;
+				background: green;
+				margin:30px 50px;
+			}
+			#box4{
+				width: 100px;
+				height: 100px;
+				background: brown;
+				margin:30px 50px;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var obox = document.getElementsByTagName("div");
+				for(var i=0;i<obox.length;i++){
+					obox[i].index = i;
+					obox[i].onclick = function(e){
+						var e = e||event;
+						console.log("box"+(this.index+1)+"被点击了")
+						this.style.background = "red";
+						//1, 取消冒泡
+						//e.cancelBubble = true;
+						
+						//2, 停止传播
+     					e.stopPropagation();
+
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box1">1
+			<div id="box2">2
+				<div id="box3">3
+					<div id="box4">4</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

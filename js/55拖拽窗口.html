@@ -36,6 +36,7 @@
 					var divleftborder = e.clientX-obox.offsetLeft;
 					var divtopborder = e.clientY - obox.offsetTop;
 					console.log(divleftborder+","+divtopborder);
+					console.log(e);
 					document.onmousemove = function(e){
 						var e = e||event;
 						obox.style.top = e.clientY - divtopborder+"px";
@@ -49,6 +50,7 @@
 					obox.style.display = "none";
 				}
 			}
+			
 		</script>
 	</head>
 	<body>

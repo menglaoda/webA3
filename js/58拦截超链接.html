@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload = function(){
+				var a1 = document.getElementsByTagName("a")[0];
+				var val = document.getElementsByTagName("input")[0];
+				a1.onclick = function(){
+//					if(confirm("是否进行跳转")){
+//						return true;
+//					}else{
+//						return false;
+//					}
+					if(val.value=="123"){
+						//open("https://www.baidu.com");
+						a1.setAttribute("href","https://www.baidu.com");
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<!--当文本框的值为123的时候，点击a标签才可以跳转到百度首页；-->
+		<input type="text" />
+		<a href="#">百度</a>
+	</body>
+</html>
