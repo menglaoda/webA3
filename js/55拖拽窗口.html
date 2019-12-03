@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#obox{
+				width: 300px;
+				height: 200px;
+				background: red;
+				position: absolute;
+				top: 100px;
+				left: 200px;
+			}
+			p{
+				background: blueviolet;
+				height: 30px;
+				line-height: 30px;
+			}
+			span{
+				color: white;
+				margin-left: 4px;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var obox = document.getElementById("obox");
+				var p1 = document.getElementsByTagName("p")[0];
+				var span1 = document.getElementsByTagName("span")[0];
+				p1.onmousedown = function(e){
+					var e = e||event;
+					var divleftborder = e.clientX-obox.offsetLeft;
+					var divtopborder = e.clientY - obox.offsetTop;
+					console.log(divleftborder+","+divtopborder);
+					document.onmousemove = function(e){
+						var e = e||event;
+						obox.style.top = e.clientY - divtopborder+"px";
+						obox.style.left = e.clientX - divleftborder+"px";
+					}
+					document.onmouseup = function(){
+						document.onmousemove = null;
+					}
+				}
+				span1.onclick = function(){
+					obox.style.display = "none";
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="obox">
+			<p>
+				<span>关闭</span>
+			</p>
+		</div>
+	</body>
+</html>
