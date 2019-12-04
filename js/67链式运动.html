@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				margin: 0;
+			}
+			#box{
+				width: 100px;
+				height: 100px;
+				background: red;
+				position: absolute;
+				top: 30px;
+				left: 0px;
+				opacity: 1;
+			}
+		</style>
+		<script src="js/startMove.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			window.onload = function(){
+				var btn = document.getElementById("btn");
+				var box = document.getElementById("box");
+				btn.onclick = function(){
+					startMove(box,"left",500,50,function(){
+						startMove(box,"top",400,50,function(){
+							startMove(box,"left",0,50,function(){
+								startMove(box,"top",30,50);
+							})
+						})
+					});
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<button id="btn">开始链式运动</button>
+		<div id="box"></div>
+	</body>
+</html>

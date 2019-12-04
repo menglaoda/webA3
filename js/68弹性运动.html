@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				margin: 0;
+			}
+			#box{
+				width: 100px;
+				height: 100px;
+				background: red;
+				position: absolute;
+				top: 30px;
+				left: 0px;
+				opacity: 1;
+			}
+		</style>
+		<script src="js/startMove.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			window.onload = function(){
+				var btn = document.getElementById("btn");
+				var box = document.getElementById("box");
+				btn.onclick = function(){
+					var target = 500;
+					var speed = 0;
+					var timer = setInterval(function(){
+						//获取当前位置
+						var start = box.offsetLeft;
+						//给一个速度
+						speed += (target - start) / 5;
+						speed *= 0.9;  //摩擦系数
+						//开始运动
+						if(start == target){
+							clearInterval(timer);
+						}else{
+							box.style.left = start+speed+"px";
+							console.log(start+","+speed);
+						}
+					},50)
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<button id="btn">开始链式运动</button>
+		<div id="box"></div>
+	</body>
+</html>

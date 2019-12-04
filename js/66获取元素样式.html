@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+				width: 100px;
+				height: 150px;
+				background: red;
+				position: absolute;
+				top: 50px;
+				left: 80px;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var box =document.getElementById("box");
+				console.log(box.offsetTop);
+				var attr = "left";
+				//console.log(getComputedStyle(box,null)[attr]);
+				function getStyleAttr(obj,attr) {
+			        if(window.getComputedStyle) { //支持IE9+, 谷歌, 火狐..	
+			        	return getComputedStyle(obj,null)[attr];
+						//var style = window.getComputedStyle("元素", "伪类");
+			        }else{
+						return obj.currentStyle[attr]; //支持IE8-
+			        }
+				}
+				console.log(parseFloat(getStyleAttr(box,"top")));
+
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box"></div>
+	</body>
+</html>
