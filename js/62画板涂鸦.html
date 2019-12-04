@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#list{
+				width: 80px;
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				z-index: 99;
+				display: none;
+			}
+			#list span{
+				display: block;
+				border: solid 1px black;
+				text-align: center;
+				margin-top: -1px;
+				height: 26px;
+				line-height: 26px;
+				cursor: pointer;
+				background: white;
+			}
+			#list span:hover{
+				background: #ccc;
+				color: white;
+			}
+			.active{
+				width: 15px;
+				height: 15px;
+				border-radius: 50%;
+				background: black;
+				position: absolute;
+				top: 0px;
+				left: 0px;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var list = document.getElementById("list");
+				var obox = document.getElementById("obox");
+				var ospan = document.getElementsByTagName("span");
+				document.oncontextmenu = function(e){
+					var e = e||event;
+					list.style.top = e.clientY+"px";
+					list.style.left = e.clientX+"px";
+					list.style.display = "block";
+					e.cancelBubble = true;
+					return false;
+				}
+				var obj = {
+					width:15,
+					height:15,
+					top:0,
+					left:0,
+					background:"black"
+				};
+				document.onmousedown = function(e){
+					list.style.display = "none";
+					var e = e||event;
+					console.log(e.button);
+					if(e.button==0){
+						document.onmousemove = function(e){
+							var e = e||event;
+							var box = document.createElement("div");
+							box.className = "active";
+							box.style.width = obj.width+"px";
+							box.style.height = obj.height+"px";
+							box.style.top = e.clientY-obj.height/2+"px";
+							box.style.left = e.clientX-obj.width/2+"px";
+							box.style.background = obj.background;
+							obox.appendChild(box);	
+						}
+					}					
+					document.onmouseup = function(){
+						document.onmousemove = null;
+					}
+				}
+				for(var i=0;i<ospan.length;i++){
+					ospan[i].onmousedown = function(e){
+						var e =e||event;
+						console.log("a")
+						if(this.innerHTML=="清空画板"){
+							obox.innerHTML = "";
+						}else if(this.innerHTML=="小号笔"){
+							obj.width = 10;
+							obj.height = 10;
+						}else if(this.innerHTML=="中号笔"){
+							obj.width = 15;
+							obj.height = 15;
+						}else if(this.innerHTML=="大号笔"){
+							obj.width = 20;
+							obj.height = 20;
+						}else if(this.innerHTML=="超大号笔"){
+							obj.width = 25;
+							obj.height = 25;
+						}else if(this.innerHTML=="黑色笔"){
+							obj.background = "black";
+						}else if(this.innerHTML=="蓝色笔"){
+							obj.background = "blue";
+						}else if(this.innerHTML=="白色笔"){
+							obj.background = "white";
+						}else if(this.innerHTML=="金色笔"){
+							obj.background = "gold";
+						}else if(this.innerHTML=="绿色笔"){
+							obj.background = "green";
+						}
+						list.style.display = "none";
+						e.cancelBubble = true;
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="list">
+			<span>清空画板</span>
+			<span>小号笔</span>
+			<span>中号笔</span>
+			<span>大号笔</span>
+			<span>超大号笔</span>
+			<span>黑色笔</span>
+			<span>蓝色笔</span>
+			<span>白色笔</span>
+			<span>金色笔</span>
+			<span>绿色笔</span>
+		</div>
+		<div id="obox"></div>
+	</body>
+</html>

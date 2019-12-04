@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#box1{
+				width: 426px;
+				height: 640px;
+				background: url(img/iphone.jpg);
+				position: relative;
+				margin: 50px auto;
+			}
+			#box2{
+				width: 370px;
+				height: 62px;
+				position: absolute;
+				left: 28px;
+				bottom: 31px;
+			}
+			#img1{
+				position: absolute;
+				top: 0px;
+				left: 0px;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var box1 = document.getElementById("box1");
+				var box2 = document.getElementById("box2");
+				var img1 = document.getElementById("img1");
+				img1.onmousedown = function(e){
+					var e =e||event;
+					var imgleftborder = e.clientX-box1.offsetLeft-box2.offsetLeft;
+					//console.log(imgleftborder)
+					document.onmousemove = function(e){
+						var e =e||event;
+						var n1 = e.clientX -box1.offsetLeft-box2.offsetLeft-imgleftborder;
+						if(n1<=0){
+							img1.style.left = 0+"px";
+						}else if(n1>=box2.offsetWidth - img1.offsetWidth){
+							box1.style.background = "url(img/iphone2.jpg)";
+							img1.style.display = "none";
+						}else{
+							img1.style.left = n1+"px";
+						}
+						
+						console.log(n1)
+					}
+					document.onmouseup = function(){
+						document.onmousemove = null;
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="box1">
+			<div id="box2">
+				<img id="img1" draggable="false" src="img/unlock_btn.jpg" />
+			</div>
+		</div>
+	</body>
+</html>

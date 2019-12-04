@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.active{
+				width: 30px;
+				position: absolute;
+				top: 0px;
+				left: 0px;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				document.onmousedown = function(){
+					var arr = [];
+					document.onmousemove = function(e){
+						var e = e||event;
+						var x = e.clientX;
+						var y = e.clientY;
+						var obj = {
+							top:y,
+							left:x
+						}
+						arr.push(obj);
+					}
+					document.onmouseup = function(){
+						document.onmousemove = null;
+						console.log(arr);
+						var i = 0 ;
+						var timer = setInterval(function(){
+							var img1 = document.createElement("img");
+							img1.className = "active";
+							img1.style.top = arr[i].top+"px";
+							img1.style.left = arr[i].left+"px";
+							img1.src = "img/xing1.jpg";
+							document.body.appendChild(img1);
+							if(i==arr.length-1){
+								clearInterval(timer);
+							}
+							i++;
+						},100)
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
