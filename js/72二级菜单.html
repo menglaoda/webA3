@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			ul{
+				width: 1000px;
+				margin: 100px auto;
+			}
+			li{
+				float: left;
+				width: 100px;
+				list-style: none;
+				position: relative;
+			}
+			a{
+				text-decoration: none;
+			}
+			li>a{
+				border-left: solid 1px white;
+				background: #ccc;
+				color: black;
+				width: 100px;
+				height: 28px;
+				line-height: 28px;
+				display: inline-block;
+				text-align: center;
+			}
+			div{
+				background: blue;
+				width: 245px;
+				height: 0px;
+				font-size: 0px;
+				position: absolute;
+				top: 28px;
+				left: 1px;
+				overflow: hidden;
+			}
+			div>a{
+				width: 100px;
+				height: 28px;
+				margin-left: 15px;
+				margin-top: 15px;
+				line-height: 28px;
+				display: inline-block;
+				text-align: center;
+				color: black;
+				font-size: 16px;
+			}
+			div>a:hover{
+				background: #ccc;
+				color: white;
+			}
+		</style>
+		<script src="js/startMove.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			window.onload = function(){
+				var oli = document.getElementsByTagName("li");
+				for(var i=0;i<oli.length;i++){
+					oli[i].onmouseover = function(){
+						this.getElementsByTagName("a")[0].style.background = "brown";
+						this.getElementsByTagName("a")[0].style.color = "white";
+						var n1 = this.getElementsByTagName("a").length-1;
+						console.log(n1);
+						startMove(this.getElementsByTagName("div")[0],"height",28*Math.ceil(n1/2)+15*(Math.ceil(n1/2)+1),50);
+					}
+					oli[i].onmouseout = function(){
+						this.getElementsByTagName("a")[0].style.background = "#ccc";
+						this.getElementsByTagName("a")[0].style.color = "black";
+						var n1 = this.getElementsByTagName("a").length-1;
+						startMove(this.getElementsByTagName("div")[0],"height",0,50);
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<ul>
+			<li>
+				<a href="#">网站首页</a>
+				<div>
+					<a href="#">学校概括</a>
+					<a href="#">学校概括</a>
+					<a href="#">学校概括</a>
+					<a href="#">学校概括</a>
+					<a href="#">学校概括</a>
+				</div>
+			</li>
+			<li>
+				<a href="#">网站首页</a>
+				<div>
+					<a href="#">学校概括</a>
+					<a href="#">学校概括</a>
+					<a href="#">学校概括</a>
+					<a href="#">学校概括</a>
+					<a href="#">学校概括</a>
+					<a href="#">学校概括</a>
+					<a href="#">学校概括</a>
+				</div>
+			</li>
+			<li>
+				<a href="#">网站首页</a>
+				<div>
+					<a href="#">学校概括</a>
+					<a href="#">学校概括</a>
+				</div>
+			</li>
+			<li>
+				<a href="#">网站首页</a>
+				<div>
+					<a href="#">学校概括</a>
+					<a href="#">学校概括</a>
+					<a href="#">学校概括</a>
+				</div>
+			</li>
+			<li>
+				<a href="#">网站首页</a>
+				<div>
+					<a href="#">学校概括</a>
+					<a href="#">学校概括</a>
+					<a href="#">学校概括</a>
+					<a href="#">学校概括</a>
+					<a href="#">学校概括</a>
+					<a href="#">学校概括</a>
+					<a href="#">学校概括</a>
+					<a href="#">学校概括</a>
+					<a href="#">学校概括</a>
+					<a href="#">学校概括</a>
+					<a href="#">学校概括</a>
+				</div>
+			</li>
+			<li>
+				<a href="#">网站首页</a>
+				<div>
+					<a href="#">学校概括</a>
+					<a href="#">学校概括</a>
+					<a href="#">学校概括</a>
+					<a href="#">学校概括</a>
+					<a href="#">学校概括</a>
+					<a href="#">学校概括</a>
+					<a href="#">学校概括</a>
+					<a href="#">学校概括</a>
+					<a href="#">学校概括</a>
+					<a href="#">学校概括</a>
+				</div>
+			</li>
+			<li>
+				<a href="#">网站首页</a>
+				<div>
+					<a href="#">学校概括</a>
+					<a href="#">学校概括</a>
+					<a href="#">学校概括</a>
+					<a href="#">学校概括</a>
+					<a href="#">学校概括</a>
+				</div>
+			</li>
+			<li>
+				<a href="#">网站首页</a>
+				<div>
+					<a href="#">学校概括</a>
+					<a href="#">学校概括</a>
+					<a href="#">学校概括</a>
+					<a href="#">学校概括</a>
+					<a href="#">学校概括</a>
+					<a href="#">学校概括</a>
+					<a href="#">学校概括</a>
+					<a href="#">学校概括</a>
+				</div>
+			</li>
+			<li>
+				<a href="#">网站首页</a>
+				<div>
+					<a href="#">学校概括</a>
+					<a href="#">学校概括</a>
+				</div>
+			</li>
+			<li>
+				<a href="#">网站首页</a>
+				<div>
+					<a href="#">学校概括</a>
+					<a href="#">学校概括</a>
+					<a href="#">学校概括</a>
+					<a href="#">学校概括</a>
+					<a href="#">学校概括</a>
+					<a href="#">学校概括</a>
+					<a href="#">学校概括</a>
+					<a href="#">学校概括</a>
+					<a href="#">学校概括</a>
+					<a href="#">学校概括</a>
+					<a href="#">学校概括</a>
+					<a href="#">学校概括</a>
+					<a href="#">学校概括</a>
+				</div>
+			</li>
+		</ul>
+	</body>
+</html>

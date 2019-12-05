@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#obox{
+				margin-top: 300px;
+			}
+			#box2{
+				width: 0px;
+				height: 100px;
+				background: green;
+				float: left;
+			}
+			span{
+				width: 22px;
+				float: left;
+				text-align: center;
+				background: pink;
+				margin-top: 20px;
+			}
+		</style>
+		<script src="js/startMove.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			window.onload = function(){
+				var obox = document.getElementById("obox");
+				var box2 = document.getElementById("box2");
+				obox.onmouseover = function(){
+					startMove(box2,"width",300,50);
+				}
+				obox.onmouseout = function(){
+					startMove(box2,"width",0,50);
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="obox">
+			<div id="box2">
+			</div>
+			<span>分享到</span>
+		</div>
+	</body>
+</html>
