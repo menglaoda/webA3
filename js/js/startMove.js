@@ -28,7 +28,7 @@ function startMove(obj,attr,target,s,fn){
 			var start = parseFloat(getStyleAttr(obj,attr));
 		}
 		//给一个速度
-		var speed = (target-start)/5;
+		var speed = (target-start)/3;
 		speed=speed>0?Math.ceil(speed):Math.floor(speed);
 		//开始运动
 		if(start == target){
