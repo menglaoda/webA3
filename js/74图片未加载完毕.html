@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+				width: 800px;
+				height: 500px;
+				margin: 50px auto;
+				border: solid 10px black;
+				position: relative;
+			}
+			#box .logo{
+				width: auto;
+				height: auto;
+				top: 100px;
+				left: 100px;
+				position: absolute;
+			}
+			#box img{
+				float: left;
+				width: 50%;
+				height: 100%;
+			}
+		</style>
+		
+	</head>
+	<body>
+		<div id="box">
+			<img class="logo" src="img/ia_100000002.png" />
+			<img class="img1" src="img/火狐截图_2019-12-06T06-21-01.532Z.png" />
+			<img class="img1" src="img/xx.jpeg" />
+		</div>
+		<script type="text/javascript">
+			var logo = document.getElementsByClassName("logo")[0];
+			var img1 = document.getElementsByClassName("img1");
+			for(var i=0;i<img1.length;i++){
+				img1[i].onload = function(){
+					logo.style.display = "none";
+				}
+			}
+			
+		</script>
+	</body>
+</html>
