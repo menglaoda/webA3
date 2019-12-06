@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0px;
+			}
+			#obox{
+				width: 400px;
+				height: 400px;
+				border: solid 10px black;
+				margin: 100px auto;
+				position: relative;
+				overflow: hidden;
+			}
+			#imgbox{
+				width: 1600px;
+				height: 400px;
+				position: absolute;
+				top: 0px;
+				left: 0px;
+			}
+			#imgbox img{
+				width: 400px;
+				height: 400px;
+				float: left;
+			}
+			#btn1{
+				position: absolute;
+				top: 190px;
+				left: 0px;
+				display: none;
+			}
+			#btn2{
+				position: absolute;
+				top: 190px;
+				right: 0px;
+				display: none;
+			}
+			#list{
+				position: absolute;
+				width: 100%;
+				bottom: 50px;
+				text-align: center;
+			}
+			#list span{
+				display: inline-block;
+				width: 20px;
+				height: 20px;
+				border: solid 1px black;
+				border-radius: 50%;
+				background: white;
+			}
+			#list span:first-child{
+				background: red;
+			}
+		</style>
+		<script src="js/startMove.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			window.onload = function(){
+				var obox = document.getElementById("obox");
+				var imgbox = document.getElementById("imgbox");
+				var oimg = imgbox.getElementsByTagName("img");
+				var btn1 = document.getElementById("btn1");
+				var btn2 = document.getElementById("btn2");
+				var ospan = document.getElementsByTagName("span");
+				var i = 0;
+				var timer = setInterval(banner,3000);
+				function banner(){
+					i++;
+					if(i==oimg.length){
+						i=1;
+						imgbox.style.left = "0px";
+					}
+					icon();
+					console.log(i);
+					startMove(imgbox,"left",-i*oimg[0].offsetWidth,50);
+				}
+				function icon(){
+					for(var j=0;j<ospan.length;j++){
+						ospan[j].style.background = "white";
+					}
+					if(i==oimg.length-1){
+						ospan[0].style.background = "red";
+					}else{
+						ospan[i].style.background = "red";
+					}					
+				}
+				//移入事件
+				obox.onmouseenter = function(){
+					clearInterval(timer);
+					btn1.style.display = "block";
+					btn2.style.display = "block";
+				}
+				//移出事件
+				obox.onmouseleave = function(){
+					timer = setInterval(banner,3000);
+					btn1.style.display = "none";
+					btn2.style.display = "none";
+				}
+				//
+				window.onfocus = function(){
+					timer = setInterval(banner,3000);
+				}
+				window.onblur = function(){
+					clearInterval(timer);
+				}
+				//下一张
+				btn2.onclick = function(){
+					banner();
+				}
+				//上一张
+				btn1.onclick = function(){
+					i--;
+					if(i<0){
+						i=oimg.length-2;
+						imgbox.style.left = -oimg[0].offsetWidth*(oimg.length-1)+"px";
+					}
+					icon();
+					startMove(imgbox,"left",-i*oimg[0].offsetWidth,50);
+				}
+				//点击小圆圈
+				for(var k=0;k<ospan.length;k++){
+					ospan[k].index = k;
+					ospan[k].onclick = function(){
+						i=this.index;
+						icon();
+						startMove(imgbox,"left",-i*oimg[0].offsetWidth,50);
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="obox">
+			<div id="imgbox">
+				<img src="img/ia_100000000265.jpg" />
+				<img src="img/ia_100000000266.jpg" />
+				<img src="img/ia_100000000267.jpg" />
+				<img src="img/ia_100000000265.jpg" />
+			</div>
+			<button id="btn1">上一张</button>
+			<button id="btn2">下一张</button>
+			<div id="list">
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+		</div>
+	</body>
+</html>
