@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--<script type="text/javascript">
+			window.onload = function(){
+				var p1 = document.getElementsByTagName("p")[0];
+				p1.style.color = "red";
+			}
+		</script>-->
+		<script src="js/jquery-3.4.1.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//文档加载完毕后执行
+			$(function(){
+				//1、根据给定的ID匹配一个元素。
+				console.log($("#p1"));
+				console.log($("#p1").css("color"));
+				$("#p1").css("color","red");
+				
+				//2、根据给定的元素名匹配所有元素
+				$("span").css("color","blue");
+				
+				//3、根据给定的类匹配元素。
+				$(".pp").css("font-size","30px");
+				
+				//4、*匹配所有元素
+				$("*").css("font-weight",900);
+				
+				//5、将每一个选择器匹配到的元素合并后一起返回。
+				$(".b1,#b2").css("color","blue");
+				
+				//6、在给定的祖先元素下匹配所有的后代元素
+//				$("#mybox a").css("color","red");
+				
+				//7、在给定的父元素下匹配所有的子元素
+				$("#mybox>a").css("color","red");
+				
+				//8、匹配所有紧接在 prev 元素后的 next 元素
+//				$("#p1+span").css("background","red");
+				
+				//9、匹配 prev 元素之后的所有 siblings 元素
+				$("#p1~span").css("background","red");
+				
+				//10、匹配所有大于给定索引值的元素
+				$("#list li:gt(2)").css("color","red");
+				
+				//11、匹配所有小于给定索引值的元素
+				$("#list li:lt(2)").css("color","red");
+				
+				//12、匹配其父元素下的第N个子或奇偶元素
+				$("#list li:nth-child(-n+2)").css("background","#85BF41");
+			})
+		</script>
+	</head>
+	<body>
+		<p id="p1">据东方航空舰队顺丰航空件</p>
+		<span>1</span>
+		<span>2</span>
+		<span>3</span>
+		<p class="pp">卡刷道具卡</p>
+		<b class="b1">公开对抗</b>
+		<b id="b2">公开对抗</b>
+		<div id="mybox">
+			<a href="#">baidu</a>
+			<h1>
+				<a href="#">taobao</a>
+			</h1>
+		</div>
+		<ul id="list">
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+		</ul>
+	</body>
+</html>
