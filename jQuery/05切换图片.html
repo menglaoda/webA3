@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			img{
+				width: 300px;
+			}
+		</style>
+		<script src="js/jquery-3.4.1.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				$(".img1").click(function(){
+					$(".img2").attr("src",$(this).attr("src"));
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<img class="img1" src="../js/img/ia_100000000265.jpg" />
+		<img class="img1" src="../js/img/ia_100000000266.jpg" />
+		<img class="img1" src="../js/img/ia_100000000267.jpg" />
+		<br />
+		<img  class="img2" src="../js/img/ia_100000000265.jpg" />
+	</body>
+</html>

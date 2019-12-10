@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box1{
+				width: 200px;
+				height: 30px;
+				background: #ccc;
+			}
+			#box2{
+				width: 0px;
+				height: 30px;
+				background: red;
+			}
+		</style>
+		<script src="js/jquery-3.4.1.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){				
+				var i=0;
+				var timer = setInterval(function(){
+					i+=2;
+					$("#box2").css("width",i+"px");
+					$("#p1").html(i/2+"%");
+					if(i==200){
+						clearInterval(timer);
+					}
+				},100)
+			})
+				
+		
+		</script>
+	</head>
+	<body>
+		<h1>进度条</h1>
+		<div id="box1">
+			<div id="box2"></div>
+		</div>
+		<p id="p1">0%</p>
+	</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.4.1.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+//				$("#btn").click(function(){
+//					alert("a");
+//				})
+				
+				
+//				$("#btn").click(fn);
+//				function fn(){
+//					alert("b");
+//				}
+
+//				$("#btn").on("click",function(){
+//					alert("c");
+//				})
+				
+				$("#btn").on({"mouseover":fn1,"mouseout":fn2});
+				function fn1(){
+					console.log("a")
+				}
+				function fn2(){
+					console.log("b");
+				}
+				
+				$("#btn").off("mouseover",fn1);
+				
+				$("#btn").one("dblclick",function(){
+					console.log("c");
+				})
+				
+				//给每个li绑定一个点击事件
+				$("#list li").click(function(){
+					//获取下标
+					console.log($(this).index());
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<button id="btn">按钮</button>
+		<ul id="list">
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+		</ul>
+	</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			ul{
+				list-style: none;
+				width: 360px;
+				height: 590px;
+				margin: 100px auto;
+				background: #999;
+			}
+			li{
+				float: left;
+				width: 98px;
+				height: 98px;
+				text-align: center;
+				border: solid 1px #ccc;
+				background: #ccc;
+				margin-left: 15px;
+				margin-top: 15px;
+				color: white;
+			}
+			li:first-child{
+				color: red;
+				border: solid 1px red;
+				background: white;
+			}
+			li:last-child{
+				width: 330px;
+				line-height: 98px;
+				font-size: 24px;
+				font-weight: 900;
+			}
+			h3{
+				margin-top: 20px;
+				font-size: 24px;
+			}
+		</style>
+		<script src="js/jquery-3.4.1.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				$("li").on("click",fn);
+				$(".oli").off("click",fn);
+				function fn(){
+					$("li").css({"background":"#ccc","border":"solid 1px #ccc","color":"white"});
+					$(this).css({"background":"white","border":"solid 1px red","color":"red"});
+					$(".oli").html($(this).index()+1+"月份好!");
+				}
+			})
+		</script>
+	</head>
+	<body>
+		<ul>
+			<li><h3>1<br />Jan</h3></li>
+			<li><h3>2<br />Jan</h3></li>
+			<li><h3>3<br />Jan</h3></li>
+			<li><h3>4<br />Jan</h3></li>
+			<li><h3>5<br />Jan</h3></li>
+			<li><h3>6<br />Jan</h3></li>
+			<li><h3>7<br />Jan</h3></li>
+			<li><h3>8<br />Jan</h3></li>
+			<li><h3>9<br />Jan</h3></li>
+			<li><h3>10<br />Jan</h3></li>
+			<li><h3>11<br />Jan</h3></li>
+			<li><h3>12<br />Jan</h3></li>
+			<li class="oli">一月份好！！</li>
+		</ul>
+	</body>
+</html>

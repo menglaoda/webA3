@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.active{
+				width: 100px;
+				height: 100px;
+				background: red;
+			}
+		</style>
+		<script src="js/jquery-3.4.1.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				//1、设置或返回被选元素的属性值。
+				console.log($("#box").attr("name"));
+				$("#box").attr("name","myname");
+				
+				//2、从每一个匹配的元素中删除一个属性
+				//$("#box").removeAttr("class");
+				
+				//3、获取在匹配的元素集中的第一个元素的属性值。
+				console.log($("#box").prop("name"));
+				$("#box").prop("title","cccc");
+				$("input").prop("checked",true);
+				$("input").prop("checked",false);
+				//$("input").attr("checked",false)
+				
+				console.log($("input").prop("checked"));
+				//4、
+				$("#box").removeProp("title");
+				
+				//5、为每个匹配的元素添加指定的类名。
+				$("#box").addClass("active active2");
+				
+				//6、从所有匹配的元素中删除全部或者指定的类。
+				//$("#box").removeClass("active2");
+				//$("#box").removeClass();//删除全部类名
+				
+				//7、如果存在（不存在）就删除（添加）一个类。
+				$("#box").toggleClass("active3");
+				
+				//8、取得第一个匹配元素的html内容。
+				console.log($("#box").html());
+				$("#box").html("1234");
+				
+				//9、取得所有匹配元素的内容。
+				console.log($("#box").text());
+				$("#box").text(666);
+				
+				//10、获得匹配元素的当前值。
+				console.log($("#v1").val());
+				$("#v1").val("999");
+				
+			})
+		</script>
+	</head>
+	<body>
+		<div id="box" class="mybox"  name="bbb"><span>对于撒</span></div>
+		<input type="radio" value="" />
+		<input type="text" id="v1" value="1234"/>
+	</body>
+</html>
