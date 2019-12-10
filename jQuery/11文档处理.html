@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.4.1.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				//创建一个span标签
+				var $span1 = $("<span>这是一个span</span>");
+				
+				//向每个匹配的元素内部追加内容。
+				//$("#box").append($span1);
+				
+				//把所有匹配的元素追加到另一个指定的元素元素集合中。
+				//$span1.appendTo($("#box"));
+				
+				//向每个匹配的元素内部前置内容。
+				//$("#box").prepend($span1)
+				
+				//把所有匹配的元素前置到另一个、指定的元素元素集合中。
+				//$span1.prependTo($("#box"));
+				
+				//在每个匹配的元素之后插入内容。
+				//$("#box").after($span1);
+				
+				//在每个匹配的元素之前插入内容。
+				//$("#box").before($span1);
+				
+				//将所有匹配的元素替换成指定的HTML或DOM元素。
+				//$(".obox").replaceWith($span1);
+				
+				//从DOM中删除所有匹配的元素。
+				$(".obox").eq(0).remove();
+				
+				//克隆匹配的DOM元素并且选中这些克隆的副本。
+				var box2 = $("#box").clone();
+				$(".obox").append(box2);
+
+			})
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			<p>亏大发感慨的感觉</p>
+		</div>
+		<div class="obox"></div>
+		<div class="obox"></div>
+	</body>
+</html>

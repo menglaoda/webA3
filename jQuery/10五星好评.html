@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			li span:first-child{
+				font-size: 30px;
+			}
+			img{
+				width: 40px;
+			}
+			li span:last-child{
+				font-size: 30px;
+			}
+		</style>
+		<script src="js/jquery-3.4.1.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				$("img").click(function(){
+					$(this).siblings("img").attr("src","../js/../js/img/xing2.png");
+					$(this).attr("src","../js/../js/img/xing1.jpg");
+					$(this).prevAll("img").attr("src","../js/../js/img/xing1.jpg");
+					if($(this).index()==1){
+						$(this).siblings(".span1").html("非常差");
+					}else if($(this).index()==2){
+						$(this).siblings(".span1").html("差");
+					}else if($(this).index()==3){
+						$(this).siblings(".span1").html("一般");
+					}else if($(this).index()==4){
+						$(this).siblings(".span1").html("好");
+					}else if($(this).index()==5){
+						$(this).siblings(".span1").html("非常好");
+					}
+					console.log($(this).index());
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<ul>
+			<li>
+				<span id="">服务态度：</span>
+				<img src="../js/../js/img/xing2.png" />
+				<img src="../js/img/xing2.png" />
+				<img src="../js/img/xing2.png" />
+				<img src="../js/img/xing2.png" />
+				<img src="../js/img/xing2.png" />
+				<span class="span1">一般</span>
+			</li>
+			<li>
+				<span id="">产品质量：</span>
+				<img src="../js/img/xing2.png" />
+				<img src="../js/img/xing2.png" />
+				<img src="../js/img/xing2.png" />
+				<img src="../js/img/xing2.png" />
+				<img src="../js/img/xing2.png" />
+				<span class="span1">一般</span>
+			</li>
+			<li>
+				<span id="">物流速度：</span>
+				<img src="../js/img/xing2.png" />
+				<img src="../js/img/xing2.png" />
+				<img src="../js/img/xing2.png" />
+				<img src="../js/img/xing2.png" />
+				<img src="../js/img/xing2.png" />
+				<span class="span1">一般</span>
+			</li>
+		</ul>
+	</body>
+</html>

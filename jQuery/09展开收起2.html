@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			ul{
+				width: 320px;
+				margin: 50px auto;
+				list-style: none;
+			}
+			li{
+				border-radius: 10px;
+				padding: 10px;
+				background: wheat;
+				margin-top: 20px;
+				width: 300px;
+			}
+			p{
+				text-indent: 32px;
+			}
+			li span:nth-child(3){
+				color: #999;
+			}
+			li span:nth-child(4){
+				float: right;
+				background: orangered;
+				color: white;
+				padding: 2px 10px;
+				margin-top: -4px;
+				border-radius: 4px;
+			}
+		</style>
+		<script src="js/jquery-3.4.1.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				$("p").each(function(i){
+					$("p").eq(i).attr("name",$("p").eq(i).html());
+					$("p").eq(i).html($("p").eq(i).attr("name").substring(0,20)+"...");
+				})
+				$(".btn").click(function(){
+					if($(this).html()=="展开"){
+						$(this).html("收起");
+						$(this).siblings("p").html($(this).siblings("p").attr("name"));
+					}else{
+						$(this).html("展开");
+						$(this).siblings("p").html($(this).siblings("p").attr("name").substring(0,20)+"...");
+					}
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<ul>
+			<li>
+				<h3>1.什么叫区块链</h3>
+				<p>1打算离开房间对抗苏联飞机圣诞快乐房价是肯定是解放昆仑山地方就流口水的房间开始独立解放昆仑山地方艰苦的历史交锋放声大哭雷锋精神灯笼裤飞机迪斯科了</p>
+				<span>2019-11-29</span>
+				<span class="btn">展开</span>
+			</li>
+			<li>
+				<h3>2.什么叫区块链</h3>
+				<p>2打算离开房间对抗苏联飞机圣诞快乐房价是肯定是解放昆仑山地方就流口水的房间开始独立解放昆仑山地方艰苦的历史交锋放声大哭雷锋精神灯笼裤飞机迪斯科了</p>
+				<span>2019-11-29</span>
+				<span class="btn">展开</span>
+			</li>
+			<li>
+				<h3>3.什么叫区块链</h3>
+				<p>3打算离开房间对抗苏联飞机圣诞快乐房价是肯定是解放昆仑山地方就流口水的房间开始独立解放昆仑山地方艰苦的历史交锋放声大哭雷锋精神灯笼裤飞机迪斯科了</p>
+				<span>2019-11-29</span>
+				<span class="btn">展开</span>
+			</li>			
+		</ul>
+	</body>
+</html>
