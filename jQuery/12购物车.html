@@ -69,6 +69,10 @@
 				color: red;
 				font-size: 50px;
 			}
+			.delete{
+				color: blue;
+				text-decoration: underline;
+			}
 		</style>
 		<script src="js/jquery-3.4.1.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
@@ -107,6 +111,51 @@
 					}
 					
 				})
+				//加号
+				$(".jia").click(function(){
+					$(this).siblings(".num").html(parseInt($(this).siblings(".num").html())+1);
+					$(this).parent().siblings(".je").html(($(this).parent().siblings(".dj").html()*$(this).siblings(".num").html()).toFixed(2));
+					var s = 0;
+					if($(this).parent().parent().find(".check").prop("checked")){
+						$(".check").each(function(i){
+							if($(".check").eq(i).prop("checked")){
+								s+=parseFloat($(".check").eq(i).parent().siblings(".je").html());
+							}
+						})
+						$(".zj").html(s.toFixed(2));
+					}
+//					
+				})
+				//减号
+				$(".jian").click(function(){
+					if($(this).siblings(".num").html()>1){
+						$(this).siblings(".num").html(parseInt($(this).siblings(".num").html())-1);
+						$(this).parent().siblings(".je").html(($(this).parent().siblings(".dj").html()*$(this).siblings(".num").html()).toFixed(2));
+						var s = 0;
+						if($(this).parent().parent().find(".check").prop("checked")){
+							$(".check").each(function(i){
+								if($(".check").eq(i).prop("checked")){
+									s+=parseFloat($(".check").eq(i).parent().siblings(".je").html());
+								}
+							})
+							$(".zj").html(s.toFixed(2));
+						}
+					}
+					
+				})
+				//删除
+				$(".delete").click(function(){
+					$(this).parent().remove();
+					var s = 0;
+					$(".check").each(function(i){
+						if($(".check").eq(i).prop("checked")){
+							console.log(i)
+							s+=parseFloat($(".check").eq(i).parent().siblings(".je").html());
+						}
+					})
+					$(".zj").html(s.toFixed(2));
+					
+				})
 			})
 		</script>
 	</head>
@@ -130,14 +179,14 @@
 				</div>
 				<div><img src="../CSS/rang茶商城/img/ia_100000004.jpg" /></div>
 				<div>反对恢复骨结核的</div>
-				<div>100.23</div>
+				<div class="dj">100.23</div>
 				<div>
 					<span class="jian">-</span>
 					<span class="num">1</span>
 					<span class="jia">+</span>
 				</div>
 				<div class="je">100.23</div>
-				<div>删除</div>
+				<div class="delete">删除</div>
 			</li>
 			<li>
 				<div>
@@ -145,14 +194,14 @@
 				</div>
 				<div><img src="../CSS/rang茶商城/img/ia_100000004.jpg" /></div>
 				<div>反对恢复骨结核的</div>
-				<div>100.23</div>
+				<div class="dj">80.23</div>
 				<div>
 					<span class="jian">-</span>
 					<span class="num">1</span>
 					<span class="jia">+</span>
 				</div>
 				<div class="je">80.23</div>
-				<div>删除</div>
+				<div class="delete">删除</div>
 			</li>
 			<li>
 				<div>
@@ -160,14 +209,14 @@
 				</div>
 				<div><img src="../CSS/rang茶商城/img/ia_100000004.jpg" /></div>
 				<div>反对恢复骨结核的</div>
-				<div>100.23</div>
+				<div class="dj">150.23</div>
 				<div>
 					<span class="jian">-</span>
 					<span class="num">1</span>
 					<span class="jia">+</span>
 				</div>
 				<div class="je">150.23</div>
-				<div>删除</div>
+				<div class="delete">删除</div>
 			</li>
 			<li>总价：<span class="zj">0.00</span>元</li>
 		</ul>
