@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#list{
+				width: 1050px;
+				margin: 50px auto;
+				list-style: none;
+			}
+			#list li:first-child{
+				border-bottom: solid 1px black; 
+				
+			}
+			#list li:first-child span{
+				border-bottom: solid 1px red;
+				display: inline-block;
+				width: 120px;
+				text-align: center;
+				padding: 10px 0px;
+				font-size: 24px;
+				position: relative;
+				top: 1px;
+			}
+			#list li:nth-child(n+2){
+				height: 100px;
+				line-height: 100px;
+				overflow: hidden;
+			}
+			#list li:nth-child(n+3){
+				background: #ccc;
+				margin-bottom: 20px;
+				padding: 10px 0px;
+			}
+			#list li:nth-child(n+2) div{
+				float: left;
+				width: 150px;
+				text-align: center;
+			}
+			#list li:nth-child(n+2) div:first-child{
+				text-align: left;
+				width: 50px;
+				padding-left: 20px;
+			}
+			#list img{
+				width: 60%;
+			}
+			.jia,.jian{
+				border: solid 1px black; 
+				width: 25px;
+				height: 25px;
+				display: inline-block;
+				line-height: 25px;
+				
+			}
+			#list li:last-child{
+				background: white;
+				height: 30px;
+				line-height: 30px;
+				font-size: 30px;
+				text-align: right;
+			}
+			#list .zj{
+				color: red;
+				font-size: 50px;
+			}
+		</style>
+		<script src="js/jquery-3.4.1.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){				
+				$(".qx").click(function(){
+					var n = 0;
+					console.log($(this).prop("checked"));
+					if($(this).prop("checked")){
+						$(".check").prop("checked",true);
+						$(".je").each(function(i){
+							n+=parseFloat($(".je").eq(i).html());
+							$(".zj").html(n);
+						})
+						console.log(n);
+					}else{
+						$(".check").prop("checked",false);
+						$(".zj").html("0.00");
+					}
+				})
+				$(".check").click(function(){
+					var a1 = 0;
+					$(".check").each(function(i){
+						if($(".check").eq(i).prop("checked")){
+							a1++;
+							if(a1==$(".check").length){
+								$(".qx").prop("checked",true);
+							}else{
+								$(".qx").prop("checked",false);
+							}
+						}
+					})
+					if($(this).prop("checked")){
+						$(".zj").html((parseFloat($(".zj").html())+parseFloat($(this).parent().parent().find(".je").html())).toFixed(2));
+					}else{
+						$(".zj").html((parseFloat($(".zj").html())-parseFloat($(this).parent().parent().find(".je").html())).toFixed(2));
+					}
+					
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<ul id="list">
+			<li><span>全部商品</span></li>
+			<li>
+				<div>
+					<input class="qx" type="checkbox" />全选
+				</div>
+				<div>商品</div>
+				<div>商品信息</div>
+				<div>单价</div>
+				<div>数量</div>
+				<div>金额</div>
+				<div>操作</div>
+			</li>
+			<li>
+				<div>
+					<input class="check" type="checkbox" />
+				</div>
+				<div><img src="../CSS/rang茶商城/img/ia_100000004.jpg" /></div>
+				<div>反对恢复骨结核的</div>
+				<div>100.23</div>
+				<div>
+					<span class="jian">-</span>
+					<span class="num">1</span>
+					<span class="jia">+</span>
+				</div>
+				<div class="je">100.23</div>
+				<div>删除</div>
+			</li>
+			<li>
+				<div>
+					<input class="check" type="checkbox" />
+				</div>
+				<div><img src="../CSS/rang茶商城/img/ia_100000004.jpg" /></div>
+				<div>反对恢复骨结核的</div>
+				<div>100.23</div>
+				<div>
+					<span class="jian">-</span>
+					<span class="num">1</span>
+					<span class="jia">+</span>
+				</div>
+				<div class="je">80.23</div>
+				<div>删除</div>
+			</li>
+			<li>
+				<div>
+					<input class="check" type="checkbox" />
+				</div>
+				<div><img src="../CSS/rang茶商城/img/ia_100000004.jpg" /></div>
+				<div>反对恢复骨结核的</div>
+				<div>100.23</div>
+				<div>
+					<span class="jian">-</span>
+					<span class="num">1</span>
+					<span class="jia">+</span>
+				</div>
+				<div class="je">150.23</div>
+				<div>删除</div>
+			</li>
+			<li>总价：<span class="zj">0.00</span>元</li>
+		</ul>
+	</body>
+</html>
