@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+				width: 100px;
+				height: 100px;
+				background: red;
+				position: absolute;
+				top: 150px;
+				left: 0px;
+				display: none;
+			}
+		</style>
+		<script src="js/jquery-3.4.1.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				$("button").eq(0).click(function(){
+					//显示隐藏的匹配元素。
+					$("#box").show();
+				})
+				$("button").eq(1).click(function(){
+					//隐藏显示的元素
+					$("#box").hide();
+				})
+				$("button").eq(2).click(function(){
+					//如果元素是可见的，切换为隐藏的；如果元素是隐藏的，切换为可见的。
+					$("#box").toggle();
+				})
+				$("button").eq(3).click(function(){
+					//通过高度变化（向下增大）来动态地显示所有匹配的元素
+					$("#box").slideDown(2000,'swing',function(){
+						$("#box").hide();
+					});
+				})
+				$("button").eq(4).click(function(){
+					//通过高度变化（向上减小）来动态地隐藏所有匹配的元素
+					$("#box").slideUp();
+				})
+				$("button").eq(5).click(function(){
+					//通过高度变化来切换所有匹配元素的可见性
+					$("#box").slideToggle();
+				})
+				$("button").eq(6).click(function(){
+					//通过不透明度的变化来实现所有匹配元素的淡入效果，
+					$("#box").fadeIn(3000);
+				})
+				$("button").eq(7).click(function(){
+					//通过不透明度的变化来实现所有匹配元素的淡出效果
+					$("#box").fadeOut(3000);
+				})
+				$("button").eq(8).click(function(){
+					//通过不透明度的变化来实现所有匹配元素的淡出效果
+					$("#box").fadeTo(2000,0.5);
+				})
+				$("button").eq(9).click(function(){
+					//通过不透明度的变化来开关所有匹配元素的淡入和淡出效果
+					$("#box").fadeToggle();
+				})
+				$("button").eq(10).click(function(){
+					//用于创建自定义动画的函数。
+					$("#box").animate({
+						left:300,
+						top:300,
+						width:200
+						
+					},5000,"linear",function(){
+						$("#box").animate({
+							top:150,
+							left:0,
+							width:100
+						},5000)
+					})
+				})
+				$("button").eq(11).click(function(){
+					//停止所有在指定元素上正在运行的动画。
+					$("#box").stop();
+				})
+				//event
+				$(document).click(function(e){
+					console.log(e.pageX+","+e.pageY)
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<button>show</button>
+		<button>hide</button>
+		<button>toggle</button>
+		<button>slideDown</button>
+		<button>slideUp</button>
+		<button>slideToggle</button>
+		<button>fadeIn</button>
+		<button>fadeOut</button>
+		<button>fadeTo</button>
+		<button>fadeToggle</button>
+		<button>animate</button>
+		<button>stop</button>
+		<div id="box"></div>
+	</body>
+</html>
