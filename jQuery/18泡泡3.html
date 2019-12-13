@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0px;
+			}
+			.active{
+				width: 20px;
+				position: absolute;
+				top: 0px;
+				left: 0;
+			}
+		</style>
+		<script src="js/jquery-3.4.1.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				var i =1 ;
+				$(document).mousemove(function(e){
+					i*=-1;
+					var x1 = e.pageX;
+					var y1 = e.pageY;//100,
+					var img1 = $("<img />");
+					img1.addClass("active");
+					img1.css({"left":x1+"px","top":y1+"px"});
+					img1.attr("src","img/paopao"+Math.ceil(Math.random()*4)+".png");
+					img1.appendTo($("body"));
+					img1.animate({
+						top:y1-i*Math.random()*100
+					},500,function(){
+						setTimeout(function(){
+							img1.remove();
+						},100)
+					})
+				})
+			})
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
