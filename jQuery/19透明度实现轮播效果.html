@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#box{
+				width: 400px;
+				height: 400px;
+				border: solid 10px black;
+				position: relative;
+				margin: 100px auto;
+			}
+			img{
+				width: 400px;
+				height: 400px;
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				opacity: 0;
+			}
+			#box img:first-child{
+				opacity: 1;
+			}
+			.leftbtn,.rightbtn{
+				width: 40px;
+				height: 40px;
+				background: red;
+				position: absolute;
+				left: 0px;
+				top: 50%;
+				margin-top: -20px;
+				font-size: 30px;
+				color: white;
+				text-align: center;
+				line-height: 40px;
+			}
+			.rightbtn{
+				left: 360px;
+			}
+			#list{
+				position: absolute;
+				bottom: 30px;
+				text-align: center;
+				width: 100%;
+			}
+			#list span{
+				width: 20px;
+				height: 20px;
+				display: inline-block;
+				border: solid 1px black;
+				border-radius: 50%;
+				background: white;
+			}
+			#list span:first-child{
+				background: red;
+			}
+		</style>
+		<script src="js/jquery-3.4.1.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				var i = 0;
+				var timer = setInterval(banner,3000);
+				var stop = 1;
+				var s = 2000
+				function banner(s){
+					stop=0;
+					i++;
+					if(i==$("img").length){
+						i=0;
+					}
+					$("img").eq(i).css("opacity",0.5);
+					$("img").not($("img").eq(i)).css("opacity",0);
+					$("img").eq(i).animate({
+						opacity:1
+					},s,"linear",function(){
+						stop=1;
+					})
+					icon();
+				}
+				function icon(){
+					$("span").css("background","white");
+					$("span").eq(i).css("background","red");				
+				}
+				$("#box").mouseenter(function(){
+					clearInterval(timer);
+				})
+				$("#box").mouseleave(function(){
+					s =2000;
+					timer = setInterval(banner,3000);
+				})
+				$(window).blur(function(){
+					clearInterval(timer);
+				})
+				$(window).focus(function(){
+					s =2000;
+					timer = setInterval(banner,3000);
+				})
+				//下一张
+				$(".rightbtn").click(function(){
+					if(stop==1){
+						s = 500
+						banner(s);
+					}
+				})
+				//上一张
+				$(".leftbtn").click(function(){
+					if(stop==1){
+						s = 500
+						stop=0;
+						i--;
+						if(i<0){
+							i=$("img").length-1;
+						}
+						$("img").eq(i).css("opacity",0.5);
+						$("img").not($("img").eq(i)).css("opacity",0);
+						$("img").eq(i).animate({
+							opacity:1
+						},s,"linear",function(){
+							stop=1;
+						})
+						icon();
+					}
+				})
+				//移入小圆圈
+				$("span").mouseenter(function(){
+					i = $(this).index();
+					$("img").eq(i).css("opacity",0.5);
+					$("img").not($("img").eq(i)).css("opacity",0);
+					$("img").eq(i).animate({
+						opacity:1
+					},300,"linear",function(){
+						$("img").not($("img").eq(i)).css("opacity",0);
+					})
+					icon();
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<div id="box">
+			<img src="img/background.jpg" />
+			<img src="img/ia_100000003.jpg" />
+			<img src="img/ia_100000004.jpg" />
+			<img src="img/ia_100000008.jpg" />
+			<img src="img/ia_100000010.jpg" />
+			<div class="leftbtn"><</div>
+			<div class="rightbtn">></div>
+			<div id="list">
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+		</div>
+	</body>
+</html>
