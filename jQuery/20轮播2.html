@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0px;
+			}
+			#obox{
+				width: 400px;
+				height: 400px;
+				border: solid 10px black;
+				margin: 100px auto;
+				position: relative;
+				overflow: hidden;
+			}
+			#imgbox{
+				width: 1600px;
+				height: 400px;
+				position: absolute;
+				top: 0px;
+				left: 0px;
+			}
+			#imgbox img{
+				width: 400px;
+				height: 400px;
+				float: left;
+			}
+			#btn1{
+				position: absolute;
+				top: 190px;
+				left: 0px;
+				display: none;
+			}
+			#btn2{
+				position: absolute;
+				top: 190px;
+				right: 0px;
+				display: none;
+			}
+			#list{
+				position: absolute;
+				width: 100%;
+				bottom: 50px;
+				text-align: center;
+			}
+			#list span{
+				display: inline-block;
+				width: 20px;
+				height: 20px;
+				border: solid 1px black;
+				border-radius: 50%;
+				background: white;
+			}
+			#list span:first-child{
+				background: red;
+			}
+		</style>
+		<script src="js/jquery-3.4.1.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				var i = 0;
+				var stop = 1;
+				var s = 1000;
+				var timer = setInterval(banner,3000);
+				function banner(){			
+					i++;
+					if(i==$("img").length){
+						i=1;
+						$("#imgbox").css("left",0);
+					}
+					fn(s);
+				}
+				function fn(s){
+					stop=0;
+					icon();
+					$("#imgbox").animate({
+						left:-i*$("img").width()
+					},s,function(){
+						stop=1;
+					})
+				}
+				function icon(){
+					$("span").css("background","white");
+					if(i==$("img").length-1){
+						$("span").eq(0).css("background","red");
+					}else{
+						$("span").eq(i).css("background","red");
+					}
+				}
+				//鼠标移入
+				$("#obox").mouseenter(function(){
+					clearInterval(timer);
+					$("#btn1").show();
+					$("#btn2").show();
+				})
+				$("#obox").mouseleave(function(){
+					timer = setInterval(banner,3000);
+					s = 1000;
+					$("#btn1").hide();
+					$("#btn2").hide();
+				})
+				//
+				$(window).blur(function(){
+					clearInterval(timer);
+				})
+				$(window).focus(function(){
+					timer = setInterval(banner,3000);
+					s = 1000;
+				})
+				//下一张
+				$("#btn2").click(function(){
+					if(stop==1){
+						banner();
+					}
+				})
+				//上一张
+				$("#btn1").click(function(){
+					if(stop==1){
+						i--;
+						if(i<0){
+							i=$("img").length-2;
+							$("#imgbox").css("left",-($("img").length-1)*$("img").width());
+						}
+						fn(s);
+					}
+				})
+				//点击小圆圈
+				$("span").click(function(){
+					i = $(this).index();
+					s = 300;
+					fn(s);
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<div id="obox">
+			<div id="imgbox">
+				<img src="img/ia_100000000265.jpg" />
+				<img src="img/ia_100000000266.jpg" />
+				<img src="img/ia_100000000267.jpg" />
+				<img src="img/ia_100000000265.jpg" />
+			</div>
+			<button id="btn1">上一张</button>
+			<button id="btn2">下一张</button>
+			<div id="list">
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+		</div>
+	</body>
+</html>

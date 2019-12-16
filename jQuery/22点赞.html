@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="font/iconfont.css"/>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.icon-dianzan2{
+				font-size: 50px;
+				color: red;
+				font-weight: 900;
+				
+			}
+			ul{
+				text-align: center;
+				padding-top: 300px;
+			}
+			li{
+				margin: 0px 20px;
+				display: inline-block;
+			}
+		</style>
+		
+		<script src="js/jquery-3.4.1.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				$(".icon-dianzan2").click(function(){
+					var x = $(this).offset().left;
+					var y = $(this).offset().top;
+					var that = $(this);
+					var span1 = $("<span class='icon iconfont icon-dianzan2'></span>");
+					span1.css("color","rgb("+parseInt(Math.random()*256)+","+parseInt(Math.random()*256)+","+parseInt(Math.random()*256)+")");
+					span1.css({"position":"fixed","top":y+"px","left":x+"px"});
+					span1.appendTo($("body"));
+					span1.animate({
+						top:y-150,
+						left:x-30
+					},1000,"linear",function(){
+						span1.animate({
+							top:y-300,
+							left:x+60,
+							opacity:0
+						},1000,"linear",function(){
+							span1.remove();	
+							that.siblings("p").html(parseInt(that.siblings("p").html())+1);
+						})
+					})
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<ul>
+			<li>
+				<span class="icon iconfont icon-dianzan2"></span>
+				<p>0</p>
+			</li>
+			<li>
+				<span class="icon iconfont icon-dianzan2"></span>
+				<p>0</p>
+			</li>
+			<li>
+				<span class="icon iconfont icon-dianzan2"></span>
+				<p>0</p>
+			</li>
+		</ul>
+	</body>
+</html>
