@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body{
+				background: url(img/background.jpg) 0px 0px/100%;
+			}
+			.list{
+				width: 80%;
+				height: 83px;
+				position: absolute;
+				bottom: 30px;
+				left: 10%;
+				list-style: none;
+			}
+			.list li{
+				width: calc((100% - 10px) / 3 );
+				height: 83px;
+				position: absolute;
+				bottom: 0px;
+				background: white;
+			}
+			.list li:nth-child(1){
+				left: 0px;
+			}
+			.list li:nth-child(2){
+				left:calc((100% - 10px) / 3 + 5px);
+			}
+			.list li:nth-child(3){
+				right: 0px;
+			}
+			.list .box1{
+				position: absolute;
+				top: 50%;
+				margin-top: -23px;
+				left: 20px;
+			}
+			.list .img1{
+				width: 40px;
+				position: absolute;
+				top: 50%;
+				margin-top: -20px;
+				right: 20px;
+			}
+			.box2{
+				width: 80%;
+				height: 350px;
+				background: rgba(227,82,17,0.5);
+				position: fixed;
+				bottom: 124px;
+				left: 10%;
+				padding: 20px 0px;
+				display: none;
+			}
+			.box2>div{
+				width: 94%;
+				display: block;
+				background: greenyellow;
+				height: 90%;
+				position: absolute;
+				top: 8%;
+				left: 3%;
+			}
+		</style>
+		<script src="js/jquery-3.4.1.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				$(".list li").mouseenter(function(){
+					$(this).css({"background":"orangered"});
+					$(this).animate({
+						height:94
+					},300)
+					$(this).find(".box2").show();
+					$(this).find(".box2").children("div").animate({
+						top:"4%"
+					},500)
+				})
+				$(".list li").mouseleave(function(){
+					$(this).css({"background":"white"});
+					$(this).animate({
+						height:83
+					},300);
+					$(this).find(".box2").hide();
+					$(this).find(".box2").children("div").animate({
+						top:"8%"
+					},500)
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<ul class="list">
+			<li>
+				<div class="box1">
+					<h3>乳液板块</h3>
+					<span>皇者，乳业先锋</span>
+				</div>
+				<img class="img1" src="img/paopao1.png" />
+				<div class="box2">
+					<div></div>
+				</div>
+			</li>
+			<li>
+				<div class="box1">
+					<h3>乳液板块</h3>
+					<span>皇者，乳业先锋</span>
+				</div>
+				<img class="img1" src="img/paopao1.png" />
+				<div class="box2">
+					<div></div>
+				</div>
+			</li>
+			<li>
+				<div class="box1">
+					<h3>乳液板块</h3>
+					<span>皇者，乳业先锋</span>
+				</div>
+				<img class="img1" src="img/paopao1.png" />
+				<div class="box2">
+					<div></div>
+				</div>
+			</li>
+		</ul>
+	</body>
+</html>

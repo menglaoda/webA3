@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="font/iconfont.css" />
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			ul{
+				width: 90%;
+				margin: 0 auto;
+			}
+			li{
+				float: left;
+				width: 25%;
+				border: solid 1px black;
+				box-sizing: border-box;
+				list-style: none;
+				text-align: center;
+				padding: 20px 0px;
+				margin-right: -1px;
+				margin-top: 20px;
+			}
+			img{
+				width: 80%;
+				display: block;
+				margin: 0 auto;
+				
+			}
+			.icon-gouwuchekong{
+				position: fixed;
+				top: 100px;
+				right: 10px;
+				font-size: 30px;
+			}
+			.active{
+				position: fixed;
+				top: 0px;
+				left: 0px;
+				width: 80%;
+			}
+		</style>
+		<script src="js/jquery-3.4.1.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				$("button").click(function(){
+					var x = $(this).siblings("img").offset().left;//
+					var y = $(this).siblings("img").offset().top-$("body,html").scrollTop();
+					var carx = $(".icon").offset().left;
+					var cary = $(".icon").offset().top-$("body,html").scrollTop();
+					console.log(carx+","+cary);
+					var img1 = $("<img />");
+					img1.addClass("active").attr("src",$(this).siblings("img").attr("src")).css({"top":y,"left":x,"width":$(this).siblings("img").width()});
+					img1.appendTo($("body"));
+					img1.animate({
+						top:cary,
+						left:carx,
+						width:30,
+						opacity:0.5
+					},2000,function(){
+						img1.remove();
+					})
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<ul>
+			<li>
+				<img src="img/paopao2.png" />
+				<button>加入购物车</button>
+			</li>
+			<li>
+				<img src="img/paopao2.png" />
+				<button>加入购物车</button>
+			</li>
+			<li>
+				<img src="img/paopao3.png" />
+				<button>加入购物车</button>
+			</li>
+			<li>
+				<img src="img/paopao4.png" />
+				<button>加入购物车</button>
+			</li>
+			<li>
+				<img src="img/paopao5.png" />
+				<button>加入购物车</button>
+			</li>
+			<li>
+				<img src="img/paopao2.png" />
+				<button>加入购物车</button>
+			</li>
+			<li>
+				<img src="img/paopao2.png" />
+				<button>加入购物车</button>
+			</li>
+			<li>
+				<img src="img/paopao3.png" />
+				<button>加入购物车</button>
+			</li>
+			<li>
+				<img src="img/paopao4.png" />
+				<button>加入购物车</button>
+			</li>
+			<li>
+				<img src="img/paopao5.png" />
+				<button>加入购物车</button>
+			</li>
+			<li>
+				<img src="img/paopao2.png" />
+				<button>加入购物车</button>
+			</li>
+			<li>
+				<img src="img/paopao2.png" />
+				<button>加入购物车</button>
+			</li>
+			<li>
+				<img src="img/paopao3.png" />
+				<button>加入购物车</button>
+			</li>
+			<li>
+				<img src="img/paopao4.png" />
+				<button>加入购物车</button>
+			</li>
+			<li>
+				<img src="img/paopao5.png" />
+				<button>加入购物车</button>
+			</li>
+			<li>
+				<img src="img/paopao2.png" />
+				<button>加入购物车</button>
+			</li>
+			<li>
+				<img src="img/paopao2.png" />
+				<button>加入购物车</button>
+			</li>
+			<li>
+				<img src="img/paopao3.png" />
+				<button>加入购物车</button>
+			</li>
+			<li>
+				<img src="img/paopao4.png" />
+				<button>加入购物车</button>
+			</li>
+			<li>
+				<img src="img/paopao5.png" />
+				<button>加入购物车</button>
+			</li>
+		</ul>
+		<span class="icon iconfont icon-gouwuchekong"></span>
+	</body>
+</html>
