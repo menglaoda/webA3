@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.4.1.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			$(function(){
+				var s = -1;
+				$("#btn").click(function(){
+					s++;
+					$.ajax({
+						type:"get",
+						url:"js/table.json",
+						async:true,
+						success:function(res){
+							console.log(res)
+							$(res).each(function(i,item){
+								if(i==s){
+									var tr1 = $("<tr></tr>");
+									var th1 =$("<th></th>");
+									var th2 =$("<th></th>");
+									var th3 =$("<th></th>");
+									var th4 =$("<th></th>");
+									var th5 =$("<th></th>");
+									var th6 =$("<th></th>");
+									th1.html(item.name).appendTo(tr1);
+									th2.html(item.sex).appendTo(tr1);
+									th3.html(item.age).appendTo(tr1);
+									th4.html(item.iphone).appendTo(tr1);
+									th5.html(item.address).appendTo(tr1);
+									th6.html(item.qq).appendTo(tr1);
+									tr1.appendTo($("#tab"));
+								}
+							})
+						},
+						error:function(){
+							console.log("请求失败");
+						}
+					});
+
+					//载入远程 HTML 文件代码并插入至 DOM 中。	
+					//$("body").load("15雪花下落.html");
+					
+//					$.get("js/04.json",function(res){
+//						console.log(res);
+//					})
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<button id="btn">按钮</button>
+		<table id="tab" border="1" width="100%">
+			<tr>
+				<th>NAME</th>
+				<th>sex</th>
+				<th>age</th>
+				<th>iphone</th>
+				<th>address</th>
+				<th>qq</th>
+			</tr>
+		</table>
+	</body>
+</html>
