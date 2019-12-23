@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.4.1.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				//初始化省份
+				$.ajax({
+					type:"get",
+					url:"js/dist/pc-code.json",
+					async:true,
+					success:function(res){
+						console.log(res)
+						$(res).each(function(i,item){
+							var op = $("<option></option>");
+							op.html(item.name);
+							op.appendTo($(".select1"));
+						})
+						//
+						fn();
+					}
+				});
+				$(".select1").change(function(){
+					fn();
+				})
+				//
+				function fn(){
+					
+						$(".select2").children().remove();
+						$.ajax({
+							type:"get",
+							url:"js/dist/pc-code.json",
+							async:true,
+							success:function(res){
+								$(res).each(function(i,item){
+									if(item.name==$(".select1").val()){
+										console.log(item.children);
+										$(item.children).each(function(i,item2){
+											var op = $("<option></option>");
+											op.html(item2.name);
+											op.appendTo($(".select2"));
+										})
+									}
+								})
+							}
+						});
+				}
+					
+				
+			})
+		</script>
+	</head>
+	<body>
+		请选择省份：<select class="select1"></select>
+		<br />
+		请选择城市：<select class="select2"></select>
+	</body>
+</html>
