@@ -83,6 +83,9 @@
 				width: 100%;
 				outline: medium;
 				text-indent: 10px;
+				position: relative;
+				z-index: 9;
+				background: transparent;
 			}
 			.user{
 				width: 70px;
@@ -94,24 +97,26 @@
 				/*left: -80px;*/
 			}
 			.box{
-				padding: 10px;
-				width: 165px;
-				background: pink;
+				padding: 0px;
+				width: 0px;
+				height: 0px;
+				overflow: hidden;
+				background: #ccc;
 				float: right;
 				position: absolute;
-				top: -2px;
+				bottom: -2px;
 				left: 350px;
 				font-size: 12px;
-				display: none;
+				opacity: 0.7;
 			}
 			.box1{
 				padding: 10px;
 				width: 86px;
 				text-align: center;
-				background: red;
+				background: pink;
 				float: right;
 				position: absolute;
-				top: 6px;
+				top: 3px;
 				left: 350px;
 				font-size: 12px;
 				display: none;
@@ -199,6 +204,7 @@
 		<script src="../js/jquery-3.4.1.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			$(function(){
+				//背景切换
 				var i =0;
 				setInterval(function(){
 					i++;					
@@ -216,6 +222,177 @@
 					})
 					
 				},5000)
+				
+				//用户名
+				var re = /^[A-Z0-9a-z\u4e00-\u9fa5]{4,20}$/;
+				var re2 = /^[0-9]{4,20}$/;
+				$(".li1 input").focus(function(){
+					$(this).siblings(".user").css("text-align","right");
+					$(this).siblings(".user").animate({
+						left:-80,
+					},50)
+					$(this).siblings(".box").show();
+					$(this).siblings(".box1").hide();
+					$(this).siblings(".icon1").hide();
+					$(this).siblings(".box").animate({
+						width:165,
+						padding:10,
+						height:32
+					},200)
+					$(this).siblings(".box").html("4-20位字符，可由字母，数字，英文，中文或者“_”组成");
+					if($(this).val().length==0){
+						$(this).siblings(".box").css({"bottom":"-5px","width":"165px","height":"32px","padding":"10px"});
+						$(this).siblings(".box").animate({
+							bottom:-1
+						},300)
+					}else if(!re.test($(this).val()) && re2.test($(this).val())){
+						$(this).siblings(".box").css({"bottom":"-1px","width":"165px","height":"32px","padding":"10px"});
+					}else{
+						
+					}					
+					$(this).siblings(".box").css("background","#ccc");
+					$(this).parent().css("border","solid 1px #ccc");
+				})
+				$(".li1 input").blur(function(){
+					if(re.test($(this).val()) && !re2.test($(this).val())){
+						console.log("格式正确");
+						$(this).attr("title","正确")
+						$(this).siblings(".icon1").show();
+						$(this).siblings(".box").animate({
+							width:0,
+							padding:0,
+							height:0
+						},500)
+					}else{
+						console.log("格式错误");
+						$(this).attr("title","错误")
+						if($(this).val().length==0){
+							$(this).siblings(".box1").show();
+							$(this).siblings(".box").hide();
+							$(this).siblings(".box1").animate({
+								top:6
+							},500)
+						}else{
+							$(this).siblings(".box").html("请输入正确的用户名，且用户名不能全为数字");
+							$(this).siblings(".box").css("background","pink");
+							$(this).parent().css("border","solid 1px red");
+						}
+						
+					}
+				})
+				
+				//手机验证
+				var re3 = /^[1][3,4,5,6,7,8,9][0-9]{9}$/;
+				$(".li2 input").focus(function(){
+					$(this).siblings(".user").css("text-align","right");
+					$(this).siblings(".user").animate({
+						left:-80,
+					},50)
+					$(this).siblings(".icon1").hide();
+					$(this).siblings(".box").animate({
+						width:165,
+						padding:10,
+						height:32
+					},200)
+				})
+				$(".li2 input").keyup(function(){
+					if(re3.test($(this).val())){
+						console.log("格式正确");
+						$(this).attr("title","正确");
+						$(this).siblings(".icon1").show();
+						$(this).siblings(".box").animate({
+							width:0,
+							padding:0,
+							height:0
+						},200)
+					}else{
+						$(this).attr("title","错误")
+						$(this).siblings(".icon1").hide();
+						$(this).siblings(".box").animate({
+							width:165,
+							padding:10,
+							height:32
+						},200)
+					}
+				})
+				
+				//密码
+				$(".li4 input").focus(function(){
+					$(this).siblings(".user").css("text-align","right");
+					$(this).siblings(".user").animate({
+						left:-80,
+					},50)
+					$(this).siblings(".box").show();
+					$(this).siblings(".box").animate({
+						width:165,
+						padding:10,
+						height:32
+					},200)
+				})
+				var re4 = /^[0-9]{6,20}$/;
+				var re5 = /^[A-Za-z]{6,20}$/;
+				var re6 = /^[A-Za-z0-9]{6,20}$/;
+				var re7 = /^[A-Za-z0-9~,.+=!-@#$%^&*]{6,20}$/;
+				$(".li4 input").keyup(function(){
+					$(this).siblings(".box").hide();
+					$(".pswbox").show();
+					if(re4.test($(this).val()) || re5.test($(this).val())){
+						console.log("低")
+						$(".pswbox b").css("background","white");
+						$(".pswbox b").eq(0).css("background","red");
+						$(this).attr("title","正确")
+					}else if(re6.test($(this).val())){
+						console.log("中")
+						$(this).attr("title","正确")
+						$(".pswbox b").css("background","white");
+						$(".pswbox b").not($(".pswbox b").eq(2)).css("background","orange");
+					}else if(re7.test($(this).val())){
+						console.log("高")
+						$(this).attr("title","正确")
+						$(".pswbox b").css("background","white");
+						$(".pswbox b").css("background","green");
+					}else{
+						console.log("格式错误")
+						$(this).attr("title","错误")
+						$(".pswbox b").css("background","white");
+					}
+				})
+				$(".li4 input").blur(function(){
+					$(".pswbox").hide();
+				})
+				
+				//确认密码
+				$(".li5 input").focus(function(){
+					$(this).siblings(".user").css("text-align","right");
+					$(this).siblings(".user").animate({
+						left:-80,
+					},50)
+				})			
+				$(".li5 input").keyup(function(){
+					$(this).siblings(".box1").show();
+					$(this).siblings(".icon1").hide()
+					if($(this).val().length==0){
+						$(this).siblings(".box1").html("请再次输入密码");
+						$(this).attr("title","错误")
+					}
+					if($(this).val()==$(".li4 input").val()){
+						$(this).siblings(".icon1").show();
+						$(this).siblings(".box1").hide();
+						$(this).attr("title","正确")
+					}else{
+						$(this).siblings(".box1").html("两次密码输入不一致");
+						$(this).attr("title","错误")
+					}
+				})
+				//点击注册
+				$("#btn").click(function(){
+					if($(".li1 input").attr("title")=="正确" && $(".li2 input").attr("title")=="正确" &&$(".li4 input").attr("title")=="正确"&&$(".li5 input").attr("title")=="正确"){
+						console.log("全部正确");
+					}else{
+						console.log("格式错误");
+						return false;
+					}
+				})
 			})
 		</script>
 	</head>
@@ -253,15 +430,15 @@
 		</div>
 		<h1>一号店注册</h1>
 		<ul class="list2">
-			<li>
+			<li class="li1">
 				<input type="text" />
 				<span class="user">用户名</span>
 				<div class="box1">用户名不能为空</div>
 				<div class="box">4-20位字符，可由字母，数字，英文，中文或者“_”组成</div>
 				<div class="icon1"></div>
 			</li>
-			<li>
-				<input type="text" />
+			<li class="li2">
+				<input type="text"  />
 				<span class="user">手机号</span>
 				<div class="box">格式错误，请输入正确的手机号码</div>
 				<div class="box">请填写正确的手机号码，以便接受订单通知，找回密码</div>
@@ -272,21 +449,21 @@
 				<span class="user user2">验证码</span>
 				<div class="yzm">获取验证码</div>
 			</li>
-			<li>
-				<input type="text" />
+			<li class="li4">
+				<input type="password" />
 				<span class="user">设置密码</span>
 				<div class="box1">密码不能为空</div>
 				<div class="box">6-20位字符，可由字母，数字，英文组成</div>
 				<div class="pswbox"><b></b><b></b><b></b><strong>低</strong></div>
 			</li>
-			<li>
-				<input type="text" />
+			<li class="li5">
+				<input type="password" />
 				<span class="user">确认密码</span>
 				<div class="box1">请再次输入密码</div>
 				<div class="icon1"></div>
 			</li>
 			<li>点击注册，表示您同意1号店 <a href="#">《服务协议及隐私声明》</a></li>
-			<li><button type="submit">同意协议并注册</button></li>		
+			<li><button id="btn" type="submit">同意协议并注册</button></li>		
 		</ul>
 		<p class="p1">	沪ICP备16050468号|沪B2-20170039|营业执照
 			<br />
