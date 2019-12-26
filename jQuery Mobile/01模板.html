@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<!-- meta使用viewport以确保页面可自由缩放 -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<!-- 引入 jQuery Mobile 样式 -->
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+		
+		<!-- 引入 jQuery 库 -->
+		<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+		
+		<!-- 引入 jQuery Mobile 库 -->
+		<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+		
+		</head>
+	<body>
+		<div data-role="page" id="pageone">
+		  <div data-role="header" data-position="fixed" >
+			  <a href="#" class="ui-btn ui-icon-home ui-btn-icon-left">主页</a>
+			  <h1>欢迎访问我的主页</h1>
+			  <a href="#" class="ui-btn ui-icon-search ui-btn-icon-left">搜索</a>
+			  <div data-role="navbar">
+			      <ul>
+			        <li><a class="ui-btn-active" href="#">主页</a></li>
+			        <li><a href="#">第二页</a></li>
+			        <li><a href="#">搜索</a></li>
+			        <li><a href="#" >主页</a></li>
+			        
+			      </ul>
+			    </div>
+			   
+				
+		  </div>
+		
+		  <div data-role="main" class="ui-content">
+		  	 <div data-role="panel" id="revealPanel" data-display="reveal"> 
+				  <h2>面板头部..</h2>
+				  <p>面板中的一些文本内容..</p>
+				  <a href="#pageone" data-rel="close" class="ui-btn ui-btn-inline">关闭面板</a>
+				</div>
+		  	<a href="#revealPanel" class="ui-btn ui-btn-inline">打开面板</a>
+		    <p>我现在是一个移动端开发者!!</p>
+		    <a href="#anylink" class="ui-btn ui-icon-home ui-btn-icon-right">Search</a>
+		    <a data-role="button" data-inline="true" data-transition="slide" href="#pagetwo">跳到第二个页面</a>	
+		    <a data-transition="slide" href="#pagetwo">跳到第二个页面</a>
+		 	<div data-role="controlgroup" data-type="horizontal">
+			 	<a href="#" class="ui-btn">按钮 1</a>
+			    <a href="#" class="ui-btn">按钮 2</a>
+			    <a href="#" class="ui-btn">按钮 3</a>
+			</div>  
+			 <div data-role="main" class="ui-content">
+			    <a href="#myPopup" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all">显示弹窗</a>
+			
+			    <div data-role="popup" id="myPopup" class="ui-content">
+			      <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">关闭</a>
+			       <p>我在右上角有个关闭按钮</p>
+			      <p><b>提示:</b> 你也可以通过点击弹窗外的区域来关闭弹窗。</p>
+			    </div>
+			  </div>
+		  </div>
+		
+		  <div data-role="footer" data-position="fixed" >
+		    <h1>底部文本</h1>
+		  </div>
+		</div>
+		
+		<!--第二个页面-->
+		<div data-role="page" id="pagetwo">
+		  <div data-role="main" class="ui-content">
+		    <a data-transition="flip" data-role="button" href="#pageone">跳转到第一个页面</a>
+		    <a data-transition="flip" data-role="button" href="#pageone">跳转到第一个页面</a>
+		    <a data-transition="flip" data-role="button" href="#pageone">跳转到第一个页面</a>
+		  </div>
+		</div>
+	</body>
+</html>
