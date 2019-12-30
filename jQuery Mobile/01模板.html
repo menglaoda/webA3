@@ -17,6 +17,10 @@
 		</head>
 	<body>
 		<div data-role="page" id="pageone">
+			<div data-role="panel" data-position-fixed="true" id="myPanel" class="ui-panel ui-panel-position-left ui-panel-display-reveal ui-body-inherit ui-panel-animate ui-panel-open"> 
+			    <div class="ui-panel-inner"><h2>面板头部..</h2><p>Some text in the panel..</p></div>
+			    
+			  </div>
 		  <div data-role="header" data-position="fixed" >
 			  <a href="#" class="ui-btn ui-icon-home ui-btn-icon-left">主页</a>
 			  <h1>欢迎访问我的主页</h1>
@@ -59,6 +63,11 @@
 			      <p><b>提示:</b> 你也可以通过点击弹窗外的区域来关闭弹窗。</p>
 			    </div>
 			  </div>
+			  
+			  <div class="ui-panel-wrapper ui-panel-animate ui-panel-page-content-position-left ui-panel-page-content-display-reveal ui-panel-page-content-open"><div data-role="main" class="ui-content">
+			    <p>点击下面按钮查看面板</p>
+			    <a href="#myPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">打开面板</a>
+			  </div></div>
 		  </div>
 		
 		  <div data-role="footer" data-position="fixed" >
