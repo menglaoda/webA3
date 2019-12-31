@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../js/img/jquery-3.4.1.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				$("#col").change(function(){
+					$("body").css("background",$(this).val());
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<form novalidate>
+			<input type="email" />
+			<input type="url" required="" />
+			<input type="number" min="10" max="100" step="10"/>
+			<input type="range" min="0" max="100" step="20" />
+			<input type="search" />
+			<input type="color" id="col" />
+			<input type="datetime-local"/>
+			<input type="file" multiple accept="image/x-png"/>
+			<input type="submit">
+		</form>
+		<p contenteditable="">艰苦奋斗很快就的身份和扩大寄生蜂肯定就是</p>
+	</body>
+</html>

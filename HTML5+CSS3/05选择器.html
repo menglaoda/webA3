@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			/*属性选择器*/
+			[data-index*="11"]{
+				color: red;
+			}
+			/*相邻兄弟选择器*/
+			[data-index = "101"]+p{
+				color: blue;
+			}
+			/* ~: 通用兄弟选择器*/
+			[data-index = "101"]~p{
+				color: gold;
+			}
+			/*.list li:not(.li3){
+				color: red;
+			}*/
+			
+			li:not(.li3){
+				font-size: 30px;
+				color: red;
+				font-family: "锐字逼格锐线体简";
+			}
+			/*伪元素选择器*/
+			[data-index = "1011"]:before{
+				content: "";
+				position: absolute;
+				width: 100px;
+				height: 100px;
+				background: green;
+			}
+			/*服务器字体*/
+			@font-face{
+				font-family: "锐字逼格锐线体简";
+				src: url("font/ruizibige.ttf"),url("font/ruizibige.svg"),url("ruizibige.woff");				
+			}
+			#box{
+				width: 100px;
+				height: 100px;
+				padding: 10px;
+				border: solid 20px black; 
+				box-sizing: border-box;
+				/*box-shadow: 0px 0px 4px 14px #ccc;*/
+				/*-webkit-filter:drop-shadow(0px 0px 5px blue);*/
+				/*border-radius: 50%;*/
+				word-wrap: break-word;/*地址或长单词进行换行*/
+				background: url(img/xing2.png) no-repeat,url(../CSS/img/new.gif);
+				background-origin: border-box;
+			}
+			img{
+				/*box-shadow: 0px 0px 4px 14px #ccc;*/
+				-webkit-filter:drop-shadow(5px 5px 5px red);
+				filter:drop-shadow(5px 5px 5px red);
+				-webkit-filter:grayscale(1);
+				 -webkit-filter:blur(10px);
+			}
+			#box2{
+				width: 200px;
+				height: 200px;
+				border: solid 20px black;
+				border-image: url(img/border.png) 30/50px round;
+			}
+			#box4{
+				width: 200px;
+				height: 400px;
+				border: solid 20px black;
+				/*background:  linear-gradient(to right, red , blue);*/ /* 标准的语法 */
+				/*background:  linear-gradient(150deg, red , blue);*/
+				background: -webkit-radial-gradient(50px center,ellipse closest-corner,red, green, blue); /* 标准的语法 */
+			}
+		</style>
+	</head>
+	<body>
+		<p data-index = "1011">较好的撒个娇傻瓜还记得萨格的环境萨格</p>
+		<p data-index = "101">较好的撒个娇傻瓜还记得萨格的环境萨格</p>
+		<p data-index = "110">较好的撒个娇傻瓜还记得萨格的环境萨格</p>
+		<p data-index = "11">较好的撒个娇傻瓜还记得萨格的环境萨格</p>
+		<p data-index = "1">较好的撒个娇傻瓜还记得萨格的环境萨格</p>		
+		<ul class="list">
+			<li>反对和规范</li>
+			<li>反对和规范</li>
+			<li class="li3">反对和规范</li>
+			<li>反对和规范</li>
+			<li>反对和规范</li>
+		</ul>
+		<div id="box">http://127.0.0.1:8020/webA3/HTML5%2bCSS3/05选择器.html  hellofggffgword </div>
+		<img src="img/xing2.png" />
+		<div id="box2"></div>
+		<div id="box4"></div>
+	</body>
+</html>
