@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+				width: 100px;
+				height: 100px;
+				background: red;
+				transition: all 2s linear 0s;
+				transform: translate(0px,0px) scale(2) rotate(0deg) skew(0deg,0deg);
+				transform-origin: left top;
+			}
+			#box2{
+				width: 100px;
+				height: 100px;
+				background: blue;
+				transition: all 2s linear 0s;
+			}
+			#box:hover{
+				width: 200px;
+				height: 200px;
+				background: blue;
+			}
+			#obox{
+				width: 100px;
+				height: 100px;
+				box-sizing: border-box;
+				border: solid 1px black;
+				margin: 100px;
+				transform:perspective(1800px) rotateX(-20deg) rotateY(-20deg);
+				transform-style:preserve-3d;
+				position: relative;
+				animation: myobox 5s infinite;
+			}
+			@keyframes myobox{
+				0%{transform:perspective(1800px) rotateX(-20deg) rotateY(-20deg);}
+				50%{transform:perspective(1800px) rotateX(-220deg) rotateY(-20deg);}
+				100%{transform:perspective(1800px) rotateX(-220deg) rotateY(-220deg);}
+			}
+			#left{
+				width: 100px;
+				height: 100px;
+				background: url(../CSS/rang茶商城/img/ia_100000006.jpg) no-repeat 0px 0px/100% 100%;
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				transform:  rotateY(90deg) translateZ(-50px);
+			}
+			#right{
+				width: 100px;
+				height: 100px;
+				background: url(../CSS/rang茶商城/img/ia_100000009.jpg) no-repeat 0px 0px/100% 100%;
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				transform:  rotateY(90deg) translateZ(50px);
+			}
+			#bottom{
+				width: 100px;
+				height: 100px;
+				background: url(../CSS/rang茶商城/img/ia_100000018.jpg) no-repeat 0px 0px/100% 100%;
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				transform: rotateX(90deg) translateZ(-50px);
+			}
+			#top{
+				width: 100px;
+				height: 100px;
+				background: url(../CSS/rang茶商城/img/ia_100000022.jpg) no-repeat 0px 0px/100% 100%;
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				transform: rotateX(90deg) translateZ(50px);
+			}
+			#next{
+				width: 100px;
+				height: 100px;
+				background: url(../git/暂存区.png) no-repeat 0px 0px/100% 100%;
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				transform: rotateX(00deg) translateZ(-50px);
+			}
+			#back{
+				width: 100px;
+				height: 100px;
+				background: url(../CSS/rang茶商城/img/ia_100000003.jpg) no-repeat 0px 0px/100% 100%;
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				transform: rotateX(0deg) translateZ(50px);
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		<div id="box2"></div>
+		<div id="obox">
+			<div id="left">左</div>
+			<div id="right">右</div>
+			<div id="top">上</div>
+			<div id="bottom">下</div>
+			<div id="back">前</div>
+			<div id="next">后</div>
+		</div>
+	</body>
+</html>
