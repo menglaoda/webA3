@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.active{
+				position: fixed;
+				top: 0px;
+				left: 0px;
+				opacity: 0;
+				animation: myimg 10s linear;
+			}
+			.active2{
+				position: fixed;
+				top: 0px;
+				left: 0px;
+				opacity: 0;
+				animation: myimg2 10s linear;
+			}
+			@keyframes myimg{
+				0%{opacity: 0;}
+				20%{opacity: 1;}
+				20.1%{opacity: 1;top: 0vh;transform: rotate(0deg);}
+				100%{opacity: 1;top: 100vh;transform: rotate(45deg);}
+			}
+			@keyframes myimg2{
+				0%{opacity: 0;}
+				20%{opacity: 1;}
+				20.1%{opacity: 1;top: 0vh;transform: rotate(0deg);}
+				100%{opacity: 1;top: 100vh;transform: rotate(-45deg);}
+			}
+		</style>
+		<script src="../js/img/jquery-3.4.1.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				setInterval(function(){
+					var img1 = $("<img />");
+					img1.attr("src","img/"+Math.ceil(Math.random()*7)+".png");			
+					var n = Math.ceil(Math.random()*5);
+					if(n%2==0){
+						img1.addClass("active");
+					}else{
+						img1.addClass("active2");
+					}
+					img1.css("left",Math.random()*90+"%")
+					img1.appendTo($("body"));
+					setTimeout(function(){
+						img1.remove();
+					},10000)
+				},1000)
+				
+			})
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

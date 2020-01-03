@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+				width: 182px;
+				height: 300px;
+				border: solid 1px black;
+				/*background: url(img/charector.png) 0px 0px;*/
+				/*animation: mybox 1s steps(10,start)  infinite;*/
+				position: relative;
+			}
+			#box img{
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				animation: mybox 5s steps(1,end) infinite;
+			}
+			#box:hover img{
+				animation: mybox 3s steps(1,end)  infinite;
+			}
+			@keyframes mybox{
+				/*0%{background: url(img/charector.png) 0px 0px;}
+				14.5%{background: url(img/charector.png) -182px 0px;}
+				29%{background: url(img/charector.png) -364px 0px;}
+				43%{background: url(img/charector.png) -546px 0px;}
+				58%{background: url(img/charector.png) -728px 0px;}
+				72%{background: url(img/charector.png) -910px 0px;}
+				86%{background: url(img/charector.png) -1092px 0px;}
+				100%{background: url(img/charector.png) 0px 0px;}*/
+				0%{left: 0px;}
+				14%{left: -182px;}
+				29%{left: -364px;}
+				43%{left: -546px;}
+				58%{left: -728px;}
+				72%{left: -910px;}
+				86%{left: -1092px;}
+				100%{left: -0px;}
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<img src="img/charector.png" />
+		</div>
+	</body>
+</html>
