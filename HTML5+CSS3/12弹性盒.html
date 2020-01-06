@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin:0;
+				padding:0;
+			}
+			ul{
+				width: 600px;
+				height: 600px;
+				border: solid 1px black;
+				list-style: none;
+				margin: 100px auto;
+				display: flex;
+				flex-direction: row;
+				flex-wrap: wrap;
+				flex-flow: row  nowrap;
+				justify-content:  center;
+				align-items: stretch;
+				align-content: space-around;
+			}
+			li{
+				width: 200px;
+				height: 100px;
+				border: solid 1px black; 
+				order: 10;
+				flex-grow:1.1;
+				flex-shrink:2;
+				flex: 1;
+			}
+			li:nth-child(3){
+				order: 1;
+				height: 200px;
+				flex: 5;
+				align-self: center;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+		</ul>
+	</body>
+</html>
