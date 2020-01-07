@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			canvas{
+				border: solid 1px black;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var canvas = document.querySelector("canvas");
+				var ctx = canvas.getContext("2d");
+				
+				var x = 50;
+				setInterval(function(){	
+					ctx.clearRect(0,0,600,100);
+					ctx.beginPath();
+					ctx.fillStyle = "red";
+					x++;
+					ctx.arc(x,50,50,0,2*Math.PI);
+					ctx.fill();	
+					
+				},20)
+			}
+		</script>
+	</head>
+	<body>
+		<canvas width="600" height="600"></canvas>
+	</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			canvas{
+				border: solid 1px black;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var canvas = document.querySelector("canvas");
+				var ctx = canvas.getContext("2d");
+				
+				ctx.moveTo(200,300);
+				ctx.lineTo(400,300);
+				ctx.moveTo(300,100);
+				ctx.lineTo(300,400);
+				ctx.stroke();
+				//fillText(text,x,y) 填充字体
+				ctx.font ="30px Arial";
+				ctx.textAlign = "right";
+				ctx.textBaseline="bottom";
+				//ctx.fillText("hello word",300,300);
+				//描边字体
+				ctx.strokeText("hello word",300,300);
+				//ctx.drawImage(img,x,y);
+				var img = new Image();
+				img.src = "img/1.png";
+				img.onload = function(){
+					//ctx.drawImage(img,300,300);
+					//ctx.drawImage(img,300,300,300,300);
+					//ctx.drawImage(img,sx,sy,swidth,sheight,x,y,width,height)
+					ctx.drawImage(img,0,0,150,100,300,300,300,150);
+					
+					
+				}
+				ctx.beginPath();
+				//设置阴影
+				ctx.shadowColor = "red";
+				ctx.shadowBlur = 50;
+				ctx.shadowOffsetX = 5;
+				ctx.shadowOffsetY = 5;
+//				var c1 = ctx.createLinearGradient(200,200,250,200);
+//				c1.addColorStop(0.5,"red");
+//				c1.addColorStop(1,"blue");
+//				ctx.fillStyle = c1;
+
+				//径向渐变
+				var c1 = ctx.createRadialGradient(250,250,0,250,250,50);
+				c1.addColorStop(0,"red");
+				c1.addColorStop(1,"blue");
+				ctx.fillStyle = c1;
+				ctx.fillRect(200,200,100,100);
+				
+				ctx.beginPath();
+				var img1 = new Image();
+				img1.src="img/2.png";
+				img1.onload = function(){
+					var img2 = ctx.createPattern(img1,"repeat")
+					ctx.fillStyle = img2;
+					ctx.fillRect(50,350,200,200);
+				}
+				
+			}
+		</script>
+	</head>
+	<body>
+		<canvas width="600" height="600"></canvas>
+	</body>
+</html>
