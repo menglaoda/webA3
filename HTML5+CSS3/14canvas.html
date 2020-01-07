@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			canvas{
+				display: block;
+				background: paleturquoise;
+				margin: 50px auto;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var canvas = document.getElementsByTagName("canvas")[0];
+				//调用方法
+				var ctx = canvas.getContext("2d");
+				//lineWidth 设置线宽
+				ctx.lineWidth = 10;
+				//strokeStyle 设置描边样式
+				ctx.strokeStyle = "red";
+				//moveTo(x,y) 设置绘制路径的起点
+				ctx.moveTo(100,100);
+				//lineTo(x,y) 画线
+				ctx.lineTo(300,100);
+				ctx.lineTo(300,300);
+				//closePath() 闭合路径，必须闭合路径才能成功填充
+				ctx.closePath();
+				//stroke() 描边
+				ctx.stroke();
+				//fillStyle 设置填充样式（默认黑色）
+				ctx.fillStyle = "blue";				
+				//fill() 填充，该方法会自动闭合路径
+				ctx.fill();
+				
+				//画一个正方形
+				ctx.beginPath();//开启一个新状态，基于之前的状态开启新的状态，新的状态会保持之前的设置
+				ctx.moveTo(350,100);
+				ctx.lineTo(550,100);
+				ctx.lineTo(550,300);
+				ctx.lineTo(350,300);
+				ctx.closePath();
+				ctx.strokeStyle = "blue";
+				ctx.stroke();
+				ctx.fillStyle = "red";
+				ctx.fill();
+								
+				//rect(x,y,width,height) 绘制矩形路径
+				ctx.rect(100,400,100,150);
+				ctx.stroke();
+				
+				//strokeRect(x,y,width,height) 绘制描边矩形
+				ctx.strokeRect(230,400,100,150);
+				
+				//fillRect(x,y,width,height) 绘制填充矩形
+				ctx.fillRect(350,400,100,150);
+				
+				//clearRect(x,y,width,height) 清除矩形区域，
+				ctx.clearRect(350,500,100,150);
+				
+				//重新定义宽高也会起到清除画布的作用
+				canvas.width=600;
+				canvas.height=600;
+				
+				//arc(x,y,radius,startAngle,endAngle,counterclockwise) 画圆弧/画圆
+				ctx.arc(300,300,100,0,180*Math.PI/180,false);
+				ctx.stroke();
+				ctx.fill();
+			}
+		</script>
+	</head>
+	<body>
+		<canvas width="600" height="600"></canvas>
+	</body>
+</html>
