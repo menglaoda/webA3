@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			canvas{
+				border: solid 1px black;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var canvas = document.getElementsByTagName("canvas")[0];
+				var ctx = canvas.getContext("2d");				
+				
+				ctx.moveTo(100,100);
+				ctx.quadraticCurveTo(200,300,300,100);
+				ctx.stroke();
+				
+				ctx.moveTo(100,400);
+				ctx.bezierCurveTo(200,600,300,200,400,400);
+				ctx.stroke();
+
+			}
+		</script>
+	</head>
+	<body>
+		<canvas width="600" height="600"></canvas>
+	</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			.active{
+				background: red;
+			}
+			.active1{
+				font-size: 26px;
+			}
+			#listid{
+				color: red;
+			}
+			.mylist{
+				background: blue;
+				color: white;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<p v-if="show">发动机看过户口登记挂号</p>
+			<button v-on:click="fn">{{myname}}</button>
+			<p v-if="Math.random() > 0.5 ">
+				1
+			</p>
+			<p v-else>
+				0
+			</p>
+		</div>
+		<template>发动反攻的海景房韩国</template>
+	</body>
+	<script type="text/javascript">
+		
+		var vm = new Vue({
+			el:"#app",
+			data:{
+				show:true,
+				myname:"隐藏",
+				ok:true
+			},
+			methods:{
+				fn:function(){
+					this.show = !this.show;
+					if(this.myname=="隐藏"){
+						this.myname="显示";
+					}else{
+						this.myname="隐藏";
+					}
+				}
+			}
+		})
+	</script>
+</html>

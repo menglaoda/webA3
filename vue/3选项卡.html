@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			.active{
+				background: red;
+			}
+			.active1{
+				font-size: 26px;
+			}
+			#listid{
+				color: red;
+			}
+			.mylist{
+				background: blue;
+				color: white;
+			}
+			.box1{
+				width: 100px;
+				height: 100px;
+				background: red;
+			}
+			.box2{
+				width: 100px;
+				height: 100px;
+				background: blue;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<p v-show="true">法拉盛的开发接口龙卷风</p>
+			<button v-on:click="fn">盒子1</button>
+			<button v-on:click="fn1">盒子2</button>
+			<div v-if="show"  v-bind:class="'box1'">1</div>
+			<div v-if="!show"  class="box2">2</div>
+			 <div v-if="type === 'A'">
+				<div>1</div>
+			</div>
+			<div v-else-if="type === 'B'">
+			  <div>2</div>
+			</div>
+			<div v-else-if="type === 'C'">
+			  <div>3</div>
+			</div>
+			<div v-else>
+			  Not A/B/C
+			</div>
+		</div>
+		
+	</body>
+	<script type="text/javascript">
+		
+		var vm = new Vue({
+			el:"#app",
+			data:{
+				show:true,
+				type:"A"
+			},
+			methods:{
+				fn:function(){
+					this.show = true;
+					this.type = "B"
+				},
+				fn1:function(){
+					this.show = false;
+				}
+			}
+		})
+	</script>
+</html>

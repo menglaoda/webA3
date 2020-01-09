@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			canvas{
+				border: solid 1px black;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var canvas = document.getElementsByTagName("canvas")[0];
+				var ctx = canvas.getContext("2d");				
+				//scale(scaleWidth,scaleHeight) 方法缩放当前绘图
+				ctx.strokeRect(100,100,100,100);
+				//ctx.scale(2,2);
+				//ctx.strokeRect(100,100,100,100);
+				
+				//translate(x,y) 方法重新映射画布上的 (0,0) 位置
+				//ctx.translate(100,100);
+				
+				//保存当前环境的状态
+				ctx.save()
+				
+				//rotate(angle) 方法旋转当前的绘图，注意参数是弧度
+				ctx.rotate(40*Math.PI/180);
+				ctx.strokeRect(200,200,100,100);
+				
+				//返回之前保存过的路径状态和属性
+				ctx.restore()
+				ctx.arc(400,400,50,0,2*Math.PI);
+				ctx.fill();
+				
+				ctx.save();
+				ctx.translate(100,100);
+				ctx.strokeRect(200,200,100,100);
+				
+				ctx.restore();
+				ctx.strokeRect(400,100,100,100);
+			}
+		</script>
+	</head>
+	<body>
+		<canvas width="600" height="600"></canvas>
+	</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="vue.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			.active{
+				background: red;
+			}
+			.active1{
+				font-size: 26px;
+			}
+			#listid{
+				color: red;
+			}
+			.mylist{
+				background: blue;
+				color: white;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<h3 v-bind:class="{active:use,active1:true}">{{message}}</h3>
+			<div v-html="message2"></div>
+			<input type="checkbox" v-model="use" />
+			<p>{{5+10}}</p>
+			<p>{{message.substring(0,5)}}</p>
+			<p v-bind:id="'list'+'id'">绝对是开发环境康师傅</p>
+			<p v-if="seen">接口都是废话</p>
+			<p v-if="show" v-bind:class="'mylist'" >经典设计开发速度很快就</p>		
+			<form active="#" v-on:submit.prevent="onSubmit">
+				<h3 contenteditable v-html="number"></h3>
+				<input type="text" v-bind:name="'myname'" v-model="number" />
+				<input type="submit" />
+			</form>
+		</div>
+	</body>
+	<script type="text/javascript">
+		//{{}} 插值
+		//v-html 能插值且解析标签
+		//v-bind:class 添加类
+		//v-bind:id 添加id
+		//v-model 双向数据绑定	,只能绑在表单控件上
+		//v-if 控制隐藏显示true/false
+		//表达式  
+		//实例化vue对象
+		var vm = new Vue({
+			el:"#app",
+			data:{
+				message:"hello word~~~~",
+				message2:"<h1>hello word</h1>",
+				use:false,
+				seen:false,
+				show:true,
+				number:12345
+			},
+			methods:{
+				fn:function(){
+					
+				}
+			}
+		})
+	</script>
+</html>
